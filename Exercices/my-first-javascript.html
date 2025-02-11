@@ -12,6 +12,16 @@
         .container > * {
             margin-bottom: 15px;
         }
+
+        .print-button{
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -19,26 +29,46 @@
     <div class="container">
         <h1>My First JavaScript</h1>
         <h2 id="demo">My First JavaScript</h2>
-        <button type="button" onclick="document.getElementById('demo').innerHTML=Date();document.getElementById('exemple').innerHTML='hello abdulrahman'">Click here to display date</button>
-        <p id="exemple"></p>
+        <button type="button" onclick="document.getElementById('demo').innerHTML=Date();
+                            document.getElementById('exemple').innerHTML='hello abdulrahman';
+                            document.getElementById('exemple').style.display='block'
+                            document.getElementById('fontz-btn').style.display='block'
+        ">Click here to display date</button>
+        <p style="display: none;" id="exemple"></p>
+
+        <button id="fontz-btn" style="display: none;" type="button" onclick="document.getElementById('exemple').style.fontSize='20px'">Click Here to change size of text</button>
 
         <div class="image">
-            <button type="button" onclick="resertIcon()">Click 1</button>
+            <button type="button" onclick="resetIcon()">Click 1</button>
             <i id="ex3" class="fa-solid fa-fire-flame-curved fa-2xl" style="color: green;"></i>
             <button type="button" onclick="secondIcon()">Click 2</button>
         </div>
 
+
+        <button type="button" onclick="document.write(5+6)">Try it</button>
+
+        <button type="button" class="print-button" onclick="window.print()">Print this Page</button>
+
     </div>
 
     <script>
+        // window.onload = function () {
+        //     document.write("<h1>Welcome</h1>");
+        // };
+
+        window.alert("Welcome !");
+
+        console.log("7+6 = " + (7+6));
+
         function secondIcon() {
             document.getElementById('ex3').className="fa-solid fa-fire-flame-simple fa-2xl"
             document.getElementById('ex3').style.color="red"
         }
-        function resertIcon() {
+        function resetIcon() {
             document.getElementById('ex3').className='fa-solid fa-fire-flame-curved fa-2xl'
             document.getElementById('ex3').style.color='green'
         }
+
     </script>
 
 </body>
