@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>JS</title>
+
+    <style>
+        body{display: flex;justify-content: center;font-family: monospace;}
+        .container > * {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>My First JavaScript</h1>
+        <h2 id="demo">My First JavaScript</h2>
+        <button type="button" onclick="document.getElementById('demo').innerHTML=Date();document.getElementById('exemple').innerHTML='hello abdulrahman'">Click here to display date</button>
+        <p id="exemple"></p>
+
+        <div class="image">
+            <button type="button" onclick="resertIcon()">Click 1</button>
+            <i id="ex3" class="fa-solid fa-fire-flame-curved fa-2xl" style="color: green;"></i>
+            <button type="button" onclick="secondIcon()">Click 2</button>
+        </div>
+
+    </div>
+
+    <script>
+        function secondIcon() {
+            document.getElementById('ex3').className="fa-solid fa-fire-flame-simple fa-2xl"
+            document.getElementById('ex3').style.color="red"
+        }
+        function resertIcon() {
+            document.getElementById('ex3').className='fa-solid fa-fire-flame-curved fa-2xl'
+            document.getElementById('ex3').style.color='green'
+        }
+    </script>
+
+</body>
+</html>
