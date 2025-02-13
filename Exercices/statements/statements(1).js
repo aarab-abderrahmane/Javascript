@@ -8,6 +8,7 @@ document.getElementById('demo').innerHTML = z;
 
 
 let person1 = "abderrahmane"
+
 let person2 = "m9rach"
 
 document.getElementById('ex1').innerHTML = person1
@@ -38,6 +39,7 @@ document.getElementById('ex3').innerHTML = Lastname + " " + fisrtname
 !multi line comments
 !multi line comments
 */
+
 
 let s = 1 ; 
 let f = 2 ; 

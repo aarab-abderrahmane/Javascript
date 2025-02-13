@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulatuer D'Age</title>
+    <style>
+        body{
+            font-family: monospace,Arial, Helvetica, sans-serif;
+            word-spacing: 1px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+        .container {
+            border : 1px dashed black; 
+            border-radius: 20px;
+            background-color: lightcyan;
+
+        }
+
+        .container > div:first-of-type {
+            border-top: 1px dashed black;
+            border-radius: 20px;
+            padding: 20px 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+
+        }
+        h1{
+            text-align: center;
+
+
+        }
+
+        .date-input{
+            display: flex;
+            gap:10px
+        }
+
+        input[type="date"]{
+            border-radius: 15px;
+            padding: 0 7px;
+            border: 1px dashed black;
+            background-color: lightgoldenrodyellow;
+        }
+
+        button{
+            padding: 10px 0;
+            border-radius: 10px;
+            background-color: lightgoldenrodyellow;
+            border: 1px solid black;
+        }
+
+        button:hover{
+            background-color: lightblue;
+        }
+
+        strong {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Simulateur d'age</h1>
+        <div>
+            <div class="date-input">
+                <p>Entrez votre date de naissance</p>
+                <input type="date" id="date">
+            </div>
+            <button type="button" onclick="CalculerAge()">Calculer l'age</button>
+            <p id="resultat" style="display: none;"></p>
+        </div>
+    </div>
+
+
+    <script src="simulateur-age.js"></script>
+</body>
+</html>
