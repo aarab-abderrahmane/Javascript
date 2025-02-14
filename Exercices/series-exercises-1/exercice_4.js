@@ -1,67 +1,51 @@
 let compteur = 1;
 
-function addParagraphe() {
-    let paragraphe = document.createElement('p');
-    paragraphe.textContent="paragraphe numero "+ compteur;
-    paragraphe.onmouseover = function() {
-        paragraphe.style.cursor='pointer';
-        paragraphe.style.textDecoration="underline";
-        paragraphe.style.fontWeight="bold"
-    };
+        function addParagraphe() {
+            let paragraphe = document.createElement('p');
+            paragraphe.textContent = "paragraphe numero " + compteur;
 
-    paragraphe.onmouseout = function(){
-        paragraphe.style.textDecoration="none";
-        paragraphe.style.fontWeight="normal"
-    };
+            paragraphe.style.textAlign="center"
 
-    
-    paragraphe.addEventListener('click',function(){
+            paragraphe.onmouseover = function() {
+                paragraphe.style.cursor = 'pointer';
+                paragraphe.style.textDecoration = "underline";
+                paragraphe.style.fontWeight = "bold";
+            };
 
-        if  (paragraphe.tagName== "P"){
-            const h1 = document.createElement('h1');
-            h1.textContent = paragraphe.textContent;
-            
-            h1.addEventListener('click',function(){
-                const newp = document.createElement('p');
-                newp.textContent = h1.textContent;
+            paragraphe.onmouseout = function(){
+                paragraphe.style.textDecoration = "none";
+                paragraphe.style.fontWeight = "normal";
+            };
 
-                newp;this.addEventListener('click',function(){
-                    const newh = document.createElement('h1');
-                    newh.textContent = newh.textContent;
-
-                    newp.replaceWith(newh);
+            paragraphe.addEventListener('click', function() {
+                if (paragraphe.tagName === "P") {
+                   
+                    const h1 = document.createElement('h1');
+                    h1.textContent = paragraphe.textContent;
+                    h1.style.textAlign="center"
+                    paragraphe.replaceWith(h1); 
                     ChangeButtonwidth();
-
-                });
-                h1.replaceWith(newp);
-                ChangeButtonwidth();
+                    paragraphe = h1; 
+                } else if (paragraphe.tagName === "H1") {
+                    const newp = document.createElement('p');
+                    newp.textContent = paragraphe.textContent;
+                    paragraphe.replaceWith(newp); 
+                    ChangeButtonwidth(); // Replace h1 with p
+                    paragraphe = newp; 
+                }
             });
-            paragraphe.replaceWith(h1);
-            ChangeButtonwidth();
 
-            
-        }
-        
+            document.getElementById('paragraphes').appendChild(paragraphe);
+            compteur++;
+        };
 
-    });
-
-    
-    
-
-    document.getElementById('paragraphes').appendChild(paragraphe);
-    compteur++ ; 
-
-};
-
-
-function ChangeButtonwidth(){
-    const buttons = document.querySelectorAll('.btn-add, .btn-delete');
+        function ChangeButtonwidth() {
+            const buttons = document.querySelectorAll('.btn-add, .btn-delete');
             buttons.forEach(button => {
-                button.style.width="70vw";
-            })
-}
+                button.style.width = "70vw";  // Change width of both buttons
+            });
+        }
 
-
-function deleteAllParagraphs(){
-      document.getElementById('paragraphes').innerHTML = ""
-}
+        function deleteAllParagraphs() {
+            document.getElementById('paragraphes').innerHTML = "";  // Clear all paragraphs
+        }
