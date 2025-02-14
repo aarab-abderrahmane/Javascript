@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+    <style>
+        *{
+            font-family: monospace;
+        }
+        body{display: flex;justify-content: center;}
+        .container{
+            margin-top: 10vh;
+            border: 1px dashed black;
+            border-radius: 20px;
+        }
+
+
+        button{
+            border: none;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding: 15px 15px;
+            background-color: lightgreen;
+            border-bottom: 1px dashed black;
+
+        }
+
+        button:hover{
+            background-color: rgba(144, 238, 144, 0.452);
+        }
+
+        #paragraphes{
+            padding: 20px;
+        }
+
+     
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <button type="button" onclick="addParagraphe()">Ajouter un paragraphe</button>
+        <div id="paragraphes"></div>
+    </div>
+
+    <script src="exercice_1.js"></script>
+</body>
+</html>
