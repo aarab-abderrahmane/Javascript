@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+    <style>
+        *{
+            font-family: monospace;
+        }
+        
+        body{display: flex;justify-content: center;}
+        .container{
+            margin-top: 10vh;
+            border: 1px dashed black;
+            border-radius: 20px;
+            width: 40vw;
+            min-width: 300px;
+        }
+
+
+        .btn-right{
+            border: none;
+            border-top-right-radius: 20px;
+            padding: 15px 15px;
+            background-color: lightgreen;
+            border-bottom: 1px dashed black;
+            width: 200px;
+        }
+
+        .btn-right:hover {background-color: rgba(144, 238, 144, 0.600);}
+
+        .btn-add{
+            width: 40vw;
+            display: flex;
+
+        }
+
+        input{
+            padding: 10px 15px;
+            border-top-left-radius: 20px;
+            border: none;
+            border-bottom: 1px dashed black;
+            border-right: 1px dashed black;
+            width: 25vw;
+            min-width: 188px;
+            flex-grow: 1;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        #paragraphes{
+            padding: 20px;
+            background-color: rgba(211, 211, 211, 0.473);
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius:20px ;
+        }
+
+        p::selection{
+            background-color: transparent;
+        }
+
+
+        .delete-btn{
+            padding: 5px 10px;
+            border-radius: 15px;
+            border: 1px solid black;
+            background-color: transparent;
+        }
+        .delete-btn:hover{
+            background-color: rgba(0, 0, 0, 0.150);
+        }
+     
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="btn-add">
+            <input id="itemInput" type="text" placeholder="Ajouter un element">
+            <button class="btn-right" type="button" onclick="addParagraphe()">Ajouter</button>
+        </div>
+     
+        <div id="paragraphes"></div>
+    </div>
+
+    <script src="exercice_9.js"></script>
+</body>
+</html>
