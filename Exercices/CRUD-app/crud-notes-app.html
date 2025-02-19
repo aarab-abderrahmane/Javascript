@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family: monospace;
+        }
+
+        body{
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .controls{
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 8px;
+        }
+
+        .colors{
+            display: flex;justify-content: center;gap:5px;flex-wrap: wrap;
+        }
+
+        .controls > *:not(.colors) {border-radius: 5px;border: 1px dashed black;padding: 5px}
+
+        .colors > *{
+            padding: 20px;
+            border: none;
+            opacity: 0.5;
+        }
+
+        .colors > *:hover{opacity: 1}
+
+        .controls > button:hover {
+            background-color: lightseagreen;
+        }
+
+        textarea{max-width: 60vw;width: 40vw;}
+
+        hr{
+            height: 2px;
+            margin: 5px 0;
+            background-color: black;
+            width: 100%;
+        }
+
+        #notes{
+            padding: 10px;
+            max-width: 80vw;
+            display: grid;
+            display: flex;
+            flex-wrap: wrap;
+            gap:10px
+
+
+        }
+
+        .notediv{
+            display: flex;
+            flex-direction: column;
+            gap:5px;
+            align-items: center;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .notediv > *:not(input[type='color'],p){
+            width: 100%;
+            border-radius: 5px;
+            border: 1px dashed black;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Notes App</h1>
+        <div class="controls">
+            <input type="text"  id="title" placeholder="Title">
+            <textarea name="area" id="text" placeholder="Your note .." rows="10"></textarea>
+            <div class="colors">
+                <button style="background: #ffcc00;" onclick="setColor('#ffcc00')"></button>
+                <button style="background: #ff6666;" onclick="setColor('#ff6666')"></button>
+                <button style="background: #66cc66;" onclick="setColor('#66cc66')"></button>
+                <button style="background: #6699ff;" onclick="setColor('#6699ff')"></button>
+                <button style="background: #cc66cc;" onclick="setColor('#cc66cc')"></button>
+            </div>
+            <input type="hidden"  id="color" value="yellow">
+            <button type="button"  onclick="addNote()">Add Note</button>
+        </div>
+        <hr>
+        <div id="notes"></div>
+    </div>
+
+
+    <script src="crud-notes-app.js"></script>
+</body>
+</html>
