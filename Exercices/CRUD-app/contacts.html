@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management</title>
+
+    <style>
+
+        body{
+            min-width: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .modal{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
+
+        .container{
+            width: 70vw;
+            border: 1px solid black;
+            border-radius: 5px;padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .container >*:not(hr,div:first-of-type){
+            padding: 10px;
+        }
+
+        
+        .container > div:first-of-type{
+            display: flex;
+            gap: 5px;
+        }
+
+        #email{flex-grow: 1;}
+        
+        .container > div:first-of-type > input{
+            padding: 10px;
+        }
+
+        #contactList{display: none;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Contacts</h1>
+        <div>
+            <input type="text" id="nom" placeholder="nom">
+            <input type="email" id="email" placeholder="email">
+            <input type="tel" id="telephone" placeholder="telephone">
+        </div>
+       
+        <fieldset>
+            <legend>Choose image</legend>
+            <input type="file" id="choose-image">
+        </fieldset>
+
+        <button id="addContact" onclick="addContact()">Ajouter un contact</button>
+
+        <hr>
+        <input type="text" id="search" placeholder="Rechercher un contact...">
+
+        <ul id="contactList"></ul>
+
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modifier le contact</h2>
+            <input type="text" id="editName" placeholder="Nom">
+            <input type="email" id="editEmail" placeholder="Email">
+            <input type="tel" id="editPhone" placeholder="Téléphone">
+            <button id="saveEdit">Enregistrer</button>
+        </div>
+    </div>
+
+    <script src="contacts.js"></script>
+</body>
+</html>
