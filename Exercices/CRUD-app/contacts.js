@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded',function(){
+    loadContacts();
+
+    document.querySelector('.close').addEventListener('click',function(){
+        document.getElementById("editModal").style.display="none";
+        document.querySelector('.container').style.filter="blur(0)";
+    });
+
+    document.getElementById('search').addEventListener('input',searchContacts);
+
+});
+
+
 function addContact(){
     let name= document.getElementById('nom').value ;
     let email = document.getElementById('email').value ; 
@@ -15,6 +28,7 @@ function addContact(){
     reader.onload = function() {
         let image =reader.result;
         let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+
         contacts.push({name,email,phone,image});
 
         console.table(contacts)
@@ -24,6 +38,7 @@ function addContact(){
         document.getElementById('nom').value="";
         document.getElementById('email').value="";
         document.getElementById('telephone').value="";
+        document.getElementById('choose-image').value="";
     
         loadContacts();
     };
@@ -31,6 +46,7 @@ function addContact(){
    
 };
 
+saveEdit
 
 function loadContacts() {
     document.getElementById('contactList').innerHTML= "";
@@ -54,11 +70,13 @@ function loadContacts() {
         document.getElementById('contactList').appendChild(contactDiv);
     });
 
-    if (contacts.length > 0){
-        document.getElementById('contactList').style.display="block";
-    }else {
-        document.getElementById('contactList').style.display="none";
-    }
+    // if (contacts.length > 0){
+    //     document.getElementById('contactList').style.display="block";
+    // }else {
+    //     document.getElementById('contactList').style.display="none";
+    // }
+
+    document.getElementById('contactList').style.display = contacts.length > 0 ? "block" : "none";
 }
 
 
@@ -74,24 +92,27 @@ function editContact(index){
     let contacts = JSON.parse(localStorage.getItem('contacts'));
     let contact = contacts[index]
 
-    document.getElementById('nom').value =contact.name;
-    document.getElementById('email').value = contact.email;
-    document.getElementById('telephone').value = contact.phone;
-    document.getElementById('choose-image').value=contact.image;
+    document.querySelector('.container').style.filter = "blur(2px)";
+    document.getElementById('editModal').style.display="block";
 
-    let addButton = document.getElementById('addContact');
-    addButton.textContent = "Save Changes";
-    addButton.onclick = function() {
+
+    document.getElementById('editName').value =contact.name;
+    document.getElementById('editEmail').value = contact.email;
+    document.getElementById('editPhone').value = contact.phone;
+    document.getElementById('editPhoto').value="";
+
+    document.getElementById('saveEdit').onclick=function(){
         saveEditedContact(index);
     };
+
 }
 
 
 function saveEditedContact(index){
-    let name = document.getElementById('nom').value;
-    let email = document.getElementById('email').value;
-    let phone = document.getElementById('telephone').value;
-    let image = document.getElementById('choose-image');
+    let name = document.getElementById('editName').value;
+    let email = document.getElementById('editEmail').value;
+    let phone = document.getElementById('editPhone').value;
+    let image = document.getElementById('editPhoto');
 
 
     if (!name || !email || !phone) {
@@ -100,20 +121,33 @@ function saveEditedContact(index){
     }
 
     let contacts = JSON.parse(localStorage.getItem('contacts'));
-    contacts[index] = { name, email, phone ,image};
 
-    localStorage.setItem('contacts',JSON.stringify(contacts))
+    if (image.files.length > 0) {
+        let reader = new FileReader();
+        reader.readAsDataURL(image.files[0]);
 
-    loadContacts();
+        reader.onload=function(){
+            contacts[index] = {name,email,phone,image:reader.result};
+            localStorage.setItem('contacts',JSON.stringify(contacts));
+            loadContacts();
+            document.getElementById('editModal').style.display = "none" ;       };
+            document.querySelector('.container').style.filter = "blur(0)";
+    } else {
+        contacts[index] = {name,email,phone,imgae : contacts[index].image};
+        localStorage.setItem('contacts',JSON.stringify(contacts));
+        loadContacts();
+        document.getElementById("editModal").style.display="none";   }
+        document.querySelector('.container').style.filter = "blur(0)";
 
-    document.getElementById('nom').value = "";
-    document.getElementById('email').value = "";
-    document.getElementById('telephone').value = "";
+}
 
-    let addButton = document.getElementById('addContact');
-    addButton.textContent = "Add Contact";
-    addButton.onclick = addContact;
 
+function searchContacts(){
+    let searchValue = document.getElementById('searc').value.toLowerCase();
+    let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+    let contactList = document.getElementById('contactList');
+
+    contactList.innerHTML="";
 }
 
 window.onload =loadContacts

@@ -12,16 +12,50 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
         .modal{
             display: none;
-            position: fixed;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            background-color: red;
+            position: absolute;
+            z-index: 2;
+            width: 50%;
+            height: 50%;
+            left: 25%;
+            top: 25%;
+            background-color: lightgray;
+            border: 1px dashed black;
+            border-radius: 10px;
         }
+
+        .modal-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:10px;
+        }
+
+        .modal-content > input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid   black;
+        }
+
+
+        .close {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 2rem;
+            border: 1px dashed black;
+            border-radius: 50%;
+            padding: 0 10px;
+            cursor: pointer;
+            background-color: rgba(255, 0, 0, 0.479);
+        }
+
+        .close:hover{background-color: red;}
 
         .container{
             width: 70vw;
@@ -42,6 +76,10 @@
             gap: 5px;
         }
 
+        .container > div:first-of-type > input{
+            width: 100%;
+        }
+
         #email{flex-grow: 1;}
         
         .container > div:first-of-type > input{
@@ -49,6 +87,22 @@
         }
 
         #contactList{display: none;}
+
+        #saveEdit{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border:none;
+            border-top: 1px dashed black;
+        }
+
+        #saveEdit:hover {
+            background-color: lightcoral;
+        }
+
 
     </style>
 </head>
@@ -83,6 +137,11 @@
             <input type="text" id="editName" placeholder="Nom">
             <input type="email" id="editEmail" placeholder="Email">
             <input type="tel" id="editPhone" placeholder="Téléphone">
+
+            <fieldset>
+                <legend>Choose Image</legend>
+                <input type="file" id="editPhoto" >
+            </fieldset>
             <button id="saveEdit">Enregistrer</button>
         </div>
     </div>
