@@ -13,6 +13,7 @@
             flex-direction: column;
             align-items: center;
             position: relative;
+            font-family: monospace;
         }
 
         .modal{
@@ -103,6 +104,48 @@
             background-color: lightcoral;
         }
 
+        .contactDiv{
+            display: flex;
+            justify-content:start;
+            align-items: center;
+            gap:10px;
+            border-bottom: 1px dashed black;
+
+        }
+
+        .contactDiv > img{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit:cover;
+            border: 3px solid lightseagreen ;
+        }
+
+        .info{
+            flex-grow: 1;
+            font-size: 1.2em;
+        }
+
+        .buttons{
+            display: flex;
+            border: 1px solid black;
+        }
+
+        .buttons > button {
+            border: none;
+            padding: 10px;
+        }
+        .buttons > button:first-child{
+            border-right: 1px solid black;
+        }
+
+        .buttons >button:first-child:hover{background-color: lightskyblue;}
+        .buttons > button:last-child:hover{background-color: lightcoral;}
+
+        .old-image{
+            width: 70px;
+            height: 70px;
+        }
 
     </style>
 </head>
@@ -137,9 +180,9 @@
             <input type="text" id="editName" placeholder="Nom">
             <input type="email" id="editEmail" placeholder="Email">
             <input type="tel" id="editPhone" placeholder="Téléphone">
-
+            <div id="old-image"></div>
             <fieldset>
-                <legend>Choose Image</legend>
+                <legend>Choose another image</legend>
                 <input type="file" id="editPhoto" >
             </fieldset>
             <button id="saveEdit">Enregistrer</button>

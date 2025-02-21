@@ -17,16 +17,32 @@ function addContact(){
     let phone = document.getElementById('telephone').value ; 
     let image = document.getElementById('choose-image');
 
-    if (!name || !email || !phone){
+    if (!name || !email || !phone || !image.value){
         window.alert('Please fill in all fields.');
         return;
     }
+
+    if (image.files[0].type !== "image/png" && image.files[0].type != "image/jpeg"){
+        alert("only PNG and JPG images are allowed!");
+        return;
+    }
+
+    if (image.files[0].size > 4*1024*1024){  /*convert to bytes*/
+        alert("Image size must be less than 4MB!")
+    }
+
+    /* 
+    🔹 1 KB (kilobyte) = 1024 bytes
+    🔹 1 MB (megabyte) = 1024 KB
+    🔹 1 MB = 1024 * 1024 bytes = 1,048,576 bytes
+    */
 
     let reader = new FileReader();
     reader.readAsDataURL(image.files[0]);
 
     reader.onload = function() {
         let image =reader.result;
+        console.log(reader.result)
         let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
 
         contacts.push({name,email,phone,image});
@@ -59,11 +75,18 @@ function loadContacts() {
         contactDiv.className= "contactDiv";
         contactDiv.innerHTML = `
             <img  src="${variable.image}" alt=""image" width="100"/>
-            <p><b>Name : </b>${variable.name}</p> 
-            <p><strong>Email:</strong> ${variable.email}</p>
-            <p><strong>Phone:</strong> ${variable.phone}</p>
-            <button  id="btn-edit" onclick="editContact(${index})">Edit</button>
-            <button id="btn-delete" onclick="deleteContact(${index})">Delete</button>
+            <div class="info">
+                <p><b>Name : </b>${variable.name}</p> 
+                <p><strong>Email:</strong> ${variable.email}</p>
+                <p><strong>Phone:</strong> ${variable.phone}</p>
+            </div>
+
+            <div class="buttons">
+                <button  id="btn-edit" onclick="editContact(${index})">Edit</button>
+                <button id="btn-delete" onclick="deleteContact(${index})">Delete</button>
+            </div>
+            
+
         `;
 
         // document.getElementById('contactList').style.display="block";
@@ -95,10 +118,14 @@ function editContact(index){
     document.querySelector('.container').style.filter = "blur(2px)";
     document.getElementById('editModal').style.display="block";
 
-
     document.getElementById('editName').value =contact.name;
     document.getElementById('editEmail').value = contact.email;
     document.getElementById('editPhone').value = contact.phone;
+
+    document.getElementById('old-image').innerHTML=`
+        <img src="${contact.image}" alt="old-image" class="old-image">
+    `    ;   
+    
     document.getElementById('editPhoto').value="";
 
     document.getElementById('saveEdit').onclick=function(){
@@ -115,7 +142,7 @@ function saveEditedContact(index){
     let image = document.getElementById('editPhoto');
 
 
-    if (!name || !email || !phone) {
+    if (!name && !email && !phone) {
         alert("Please fill in all fields.");
         return;
     }
@@ -133,7 +160,7 @@ function saveEditedContact(index){
             document.getElementById('editModal').style.display = "none" ;       };
             document.querySelector('.container').style.filter = "blur(0)";
     } else {
-        contacts[index] = {name,email,phone,imgae : contacts[index].image};
+        contacts[index] = {name,email,phone,image: contacts[index].image};
         localStorage.setItem('contacts',JSON.stringify(contacts));
         loadContacts();
         document.getElementById("editModal").style.display="none";   }
