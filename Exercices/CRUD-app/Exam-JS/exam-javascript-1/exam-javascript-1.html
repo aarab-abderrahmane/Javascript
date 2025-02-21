@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achat Livres</title>
+    <style>
+
+        *{
+            font-family: monospace;
+        }
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        table { width: 50%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+
+        .container{
+            margin-top: 10vh;
+            padding: 10px;
+            padding-left: 30px;
+            border: 2px solid black;
+            border-radius: 5px;
+            display: flex ;
+            flex-direction: column;  
+            background-color: #ffc800;
+            max-width: 700px;
+            width: 60vw;
+        }
+
+        #checkout{
+            display: none;
+        } 
+            
+
+        .info{
+            margin-top: 20px;
+            display: flex;
+            gap:10px;
+            font-size: 1.1rem;
+        }
+
+
+     
+        .info > img{
+            border: 5px ridge black;
+            width: 150px;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .buttons > button:first-child{
+            padding: 10px;
+            background-color: #ff8fe9;
+            border-radius: 5px;
+            border: 2px solid black;
+            font-weight: bold;
+
+        }
+
+        .buttons > button:last-child{
+            padding: 10px;
+            background-color: #ff7152;
+            border-radius: 5px;
+            border: 2px solid black;
+            font-weight: bold;
+
+
+        }
+
+        .buttons >*:hover{
+            box-shadow: 3px 3px 0 black;
+        }
+
+        select{
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        table{width: 90%;}
+
+        .checkLivre:active{
+            color: black;
+        }
+
+    </style>
+</head>
+<body onload="charger()">
+
+    <div class="container">
+        <h2>Achat Livres</h2>
+        
+        <div class="choose">
+            <label for="livres">Choisir votre livre :</label>
+            <select id="livres" onchange="afficher()"></select>
+        </div>
+
+        <div class="info">
+            <img id="image" src="" alt="Image du livre" width="100">
+            <div class="info-text">
+                <h3 id="titre"></h3>
+                <p id="isbn"></p>
+                <p id="prix"></p>       
+            </div>
+        </div>
+    
+        <br>
+        
+        <div class="buttons">
+            <button onclick="ajouter()">Ajouter au panier</button>
+            <button onclick="retirer()">Retirer du panier</button>
+        </div>
+        <hr>        
+        <div id="checkout">
+            <h3>Panier</h3>
+            <table>
+                <tr>
+                    <th colspan="2">Titre</th>
+                    <th>Prix</th>
+                </tr>
+                <tbody id="panier"></tbody>
+            </table>
+        
+            <h3 style="text-decoration: underline;">Prix Total : <span id="total">0</span></h3> 
+        </div>
+    </div>
+
+   <script src="exam-javascript-1.js"></script>
+
+</body>
+</html>
