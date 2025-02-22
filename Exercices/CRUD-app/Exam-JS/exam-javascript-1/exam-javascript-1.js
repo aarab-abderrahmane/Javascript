@@ -71,14 +71,19 @@ function retirer(){
         return;
     }
 
-    checkboxes.forEach(checkbox_index => {
-        let index = checkbox_index.dataset.index;
+
+    console.log(checkboxes)
+
+    let indicesASupprimer = Array.from(checkboxes).map(checkbox => parseInt(checkbox.dataset.index));
+
+
+
+
+    indicesASupprimer.sort((a,b) => b-a).forEach(index => {
         panier.splice(index,1);
     });
 
-    // indicesASupprimer.sort((a,b) => b-a ).forEach(index => {
-    //     panier.splice(index,1);
-    // })  
+
 
     mettreAjourPanier();
 }
