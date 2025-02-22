@@ -1,0 +1,7 @@
+Q1 -> .
+
+Q2 -> document
+
+Q4 -> onSubmit 
+
+Q5-> b

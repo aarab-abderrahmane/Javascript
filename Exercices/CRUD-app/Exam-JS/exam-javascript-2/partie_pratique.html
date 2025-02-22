@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            font-family: monospace;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+        }
+
+        #inputs , #output{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(6,40px);
+            gap: 10px;
+            align-items: center;
+        }
+
+        #total_ht,#total_TTC{
+            width: 300px;
+            height: 20px;
+            background-color: gray;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 90%;
+        }
+        
+        tr,td{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div id="inputs">
+            <p>Code article : </p>
+            <input type="number" >
+            <p>Libelle : </p>
+            <input type="text">
+            <p>Quantite : </p>
+            <input type="number">
+            <p>Prix unitaire HT : </p>
+            <input type="text" pattern="[0-9]*">
+            <p>Taux de TVA : </p>
+            <select name="" id="select_TVA">
+                <option value="20%">20%</option>
+                <option value="20%">30%</option>
+                <option value="20%">40%</option>
+            </select>
+
+            <div class="buttons">
+                <button type="button" onclick="Add_product()">Ajouter</button>
+                <button type="button" onclick="Calculer_total()">Calculer le total de la facture</button>
+            </div>
+
+        </div>
+
+        <div id="checkout">
+            <table>
+                <thead>
+                    <th>Code article</th>
+                    <th>Libelle</th>
+                    <th>Quantite</th>
+                    <th>Prix unitaire HT</th>
+                    <th>Taux de TVA</th>
+                    <th>Prix Total TTC</th>
+                    <th></th>
+                </thead>
+                <tbody id="panier"></tbody>
+            </table>
+            <div id="output">
+                <p>Total HT : </p>
+                <div id="total_ht"></div>
+                <p>Total TTC : </p>
+                <div id="total_TTC"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="partie_pratique.js"></script>
+</body>
+</html>
