@@ -48,13 +48,14 @@
             border-radius: 24px;
             color: white;
             width: 14.28%;
-            text-align: center;
+            display: flex;
+            justify-content: center;
             transition: background-color 0.7s ease;
+            border: 2px dashed #838585;
+            overflow: hidden;
         }
 
-        .header > div:last-child{
-            background-color: #b31520;
-        }
+        
 
         .header > div:hover{
             border: 1px solid #b31520;
@@ -81,7 +82,15 @@
 
         input[type="date"]:hover{
             background-color: rgba(128, 128, 128, 0.9);
-        }        
+        }    
+        
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            gap:10px;
+            direction: rtl;
+
+        }
 
     </style>
 </head>
@@ -93,17 +102,19 @@
 
     <div class="container">
         <div class="date-number">
-            <p id="Month">January</p>
+            <p id="Month">مارس</p>
             <h1 id="Day">01</h1>
         </div>
         <div class="header" id="header">
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-            <div>Sun</div>
+            <div class="day-name">الاحد</div>
+            <div class="day-name">السبت</div>
+            <div class="day-name">الجمعة</div>
+            <div class="day-name">الخميس</div>
+            <div class="day-name">الاربعاء</div>
+            <div class="day-name">الثلاثاء</div>
+            <div class="day-name">الاتنين</div>
+        
+
         </div>
         <div class="days" id="days-container"></div>
     </div>
