@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .container{
+            margin-top: 10vh;
+            background-color: #eacbf2;
+            padding: 20px;
+            border: 2px solid #e5b1f1;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+        }
+
+        #result {
+            display: flex;
+            align-items:center;
+            padding-left: 10px;
+            background-color:#a6a4b0 ;
+            width: 100%;
+            height: 50px;
+            border: 10px solid #e3b6f5;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            box-shadow: 2px 2px 0 black inset;
+        }
+
+        #calculator-buttons{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        #calculator-buttons > * {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #group-1 > *{
+            background-color: #ffdeee;
+            box-shadow: 3px 3px 0 #bda5b0;
+            border: 1px solid  #d3bac6;
+                   
+        }
+
+
+        button{
+            border-radius: 50%;
+            border: none;
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s linear;
+        }
+
+        button:active {
+            transform: scale(0.87);
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div id="result"></div>
+        <div id="calculator-buttons">
+            <div id="group-1">
+                <button onclick="">MRC</button>
+                <button onclick="">M-</button>
+                <button onclick="">M+</button>
+                <button onclick="">√</button>
+                <button onclick="">%</button>
+            </div>
+            <div id="group-2">
+                <button onclick="">-></button>
+                <button onclick="appendValue(7)">7</button>
+                <button onclick="appendValue(8)">8</button>
+                <button onclick="appendValue(9)">9</button>
+                <button onclick="">/</button>
+            </div>
+            <div id="group-3">
+                <button onclick="">CE</button>
+                <button onclick="">4</button>
+                <button onclick="">5</button>
+                <button onclick="">6</button>
+                <button onclick="">x</button>
+            </div>
+            <div id="group-4">
+                <button onclick="">AC</button>
+                <button onclick="">1</button>
+                <button onclick="">2</button>
+                <button onclick="">3</button>
+                <button onclick="">-</button>
+            </div>
+            <div class="group-5">
+                <button onclick="">0</button>
+                <button onclick="">00</button>
+                <button onclick="">.</button>
+                <button onclick="">=</button>
+                <button onclick="">+</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="calculator.js"></script>
+</body>
+</html>
