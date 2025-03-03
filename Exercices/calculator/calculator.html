@@ -37,6 +37,8 @@
             border-radius: 20px;
             margin-bottom: 10px;
             box-shadow: 2px 2px 0 black inset;
+            font-family: 'Digital-7', 'Seven Segment', sans-serif;
+            font-size: 1.2rem;
         }
 
         #calculator-buttons{
@@ -72,22 +74,53 @@
             transform: scale(0.87);
         }
 
+        #group-2 > *{
+            background-color:#ffedbd ;
+            box-shadow:  3px 3px 0 #ccbe98;
+        }
+        
+        #group-3 > *:not(:first-of-type) {
+            background-color: #c3e3c4;
+            box-shadow: 3px 3px 0 #99b69a;
+        }
+
+        #group-3 > :first-of-type{
+            background-color: #ff8957;
+            box-shadow:  3px 3px 0 #c46943;
+        }
+
+        #group-4 > *:not(:first-of-type) {
+            background-color: #db99f5;
+            box-shadow: 3px 3px 0 #b97fcf;
+        }
+
+        #group-4 > :first-of-type{
+            background-color: #ff8957;
+            box-shadow:  3px 3px 0 #c46943;
+        }
+
+        #group-5 >*{
+            background-color: #a0e2fc;
+            box-shadow: 3px 3px 0 #76bcd8;
+        }
+
+
     </style>
 </head>
 <body>
     
     <div class="container">
-        <div id="result"></div>
+        <input type="text" id="result">
         <div id="calculator-buttons">
             <div id="group-1">
                 <button onclick="">MRC</button>
                 <button onclick="">M-</button>
                 <button onclick="">M+</button>
                 <button onclick="">√</button>
-                <button onclick="">%</button>
+                <button onclick="appendValue('%')">%</button>
             </div>
             <div id="group-2">
-                <button onclick="">-></button>
+                <button onclick="backSpace()">-></button>
                 <button onclick="appendValue(7)">7</button>
                 <button onclick="appendValue(8)">8</button>
                 <button onclick="appendValue(9)">9</button>
@@ -95,24 +128,24 @@
             </div>
             <div id="group-3">
                 <button onclick="">CE</button>
-                <button onclick="">4</button>
-                <button onclick="">5</button>
-                <button onclick="">6</button>
-                <button onclick="">x</button>
+                <button onclick="appendValue(4)">4</button>
+                <button onclick="appendValue(5)">5</button>
+                <button onclick="appendValue(6)">6</button>
+                <button onclick="appendValue('*')">x</button>
             </div>
             <div id="group-4">
-                <button onclick="">AC</button>
-                <button onclick="">1</button>
-                <button onclick="">2</button>
-                <button onclick="">3</button>
-                <button onclick="">-</button>
+                <button onclick="clearOutput()">AC</button>
+                <button onclick="appendValue(1)">1</button>
+                <button onclick="appendValue(2)">2</button>
+                <button onclick="appendValue(3)">3</button>
+                <button onclick="appendValue('-')">-</button>
             </div>
-            <div class="group-5">
-                <button onclick="">0</button>
-                <button onclick="">00</button>
-                <button onclick="">.</button>
-                <button onclick="">=</button>
-                <button onclick="">+</button>
+            <div id="group-5">
+                <button onclick="appendValue(0)">0</button>
+                <button onclick="appendValue('00')">00</button>
+                <button onclick="appendValue('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="appendValue('+')">+</button>
             </div>
         </div>
     </div>
