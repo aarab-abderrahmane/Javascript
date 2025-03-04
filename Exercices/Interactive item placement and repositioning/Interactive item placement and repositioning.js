@@ -7,27 +7,30 @@ function selectItem(item) {
     })
 
     item.classList.add("selected");
-    item.style.backgroundColor="green";
+    item.style.backgroundColor="yellow";
     selectedItem = item
 }
 
 function placeItem(val){
 
-    console.log(val , val.innerHTML)
-    // if (!selectedItem) return ;
+    if (selectedItem){
+        if (val.innerHTML.trim() === ""){
+            val.innerHTML = selectedItem.innerHTML;
+            val.style.width="auto";
+            selectedItem.style.display = "none";
+            selectedItem = null;
+        }
+    
+    }else if (val.innerHTML.trim !==""){
+        let elements = document.querySelectorAll('.element');
+        for (let el of elements){
+            if (el.style.display="none" && el.innerHTML=== val.innerHTML){
+                el.style.display = "inline-block";
+                break;
+            }
+        }
 
-    if (val.innerHTML.trim() === ""){
-        val.innerHTML  = selectedItem.innerHTML;
-        val.style.width="auto";
-        selectedItem.remove();
-        val.style.border="none";
-        selectedItem = null;
-
-    }else {
-        let move_back = document.createElement('div');
-        move_back.innerHTML = `<div class="element" onclick="selectItem(this)">${val.innerHTML}</div>`
-        document.querySelector('.choose').appendChild(move_back);
-        val.textContent="";
+        val.innerHTML=""
         val.style.width="20px"
     }
 }

@@ -6,9 +6,16 @@
     <title>Document</title>
 
     <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
         body{
             display: flex;
             justify-content: center;
+            background-color: #fcf7f9;
+            color: #b3000c;
         }
 
         .choose {
@@ -27,11 +34,21 @@
             margin-top: 10vh;
         }
 
-        #paragraphe > p >  span {
-            height: 20px;
+        #paragraphe > span{
+            height: 15px;
             background-color: lightcoral;
             display: inline-block;
-            width: 20px;
+            width: 50px;
+            margin:0 5px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            
+        }
+
+        #paragraphe {
+            display: flex;
+            align-items: center;
         }
 
         p > span:hover {
@@ -48,8 +65,8 @@
             <div class="element" onclick="selectItem(this)" >Aarab</div>
 
         </div>
-        <div id="paragraphe">
-            <p>My first name is , <span id="val-1"  onclick="placeItem(this)"></span> and last name is <span id="val-2" onclick="placeItem(this)"></span></p>
+        <div>
+            <p id="paragraphe" >My first name is , <span id="val-1"  onclick="placeItem(this)"></span> and last name is <span id="val-2" onclick="placeItem(this)"></span></p>
         </div>
     </div>
 
