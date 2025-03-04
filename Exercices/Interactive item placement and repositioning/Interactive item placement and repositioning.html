@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+
+        .choose {
+            display: flex;
+            gap: 10px;
+        }
+
+
+        .choose >* {
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
+
+
+        .container {
+            margin-top: 10vh;
+        }
+
+        #paragraphe > p >  span {
+            height: 20px;
+            background-color: lightcoral;
+            display: inline-block;
+            width: 20px;
+        }
+
+        p > span:hover {
+            border: 2px dashed black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="choose">
+            
+            <div class="element" onclick="selectItem(this)">Abdulrahman</div>
+            <div class="element" onclick="selectItem(this)" >Aarab</div>
+
+        </div>
+        <div id="paragraphe">
+            <p>My first name is , <span id="val-1"  onclick="placeItem(this)"></span> and last name is <span id="val-2" onclick="placeItem(this)"></span></p>
+        </div>
+    </div>
+
+    <script src="Interactive item placement and repositioning.js"></script>
+</body>
+</html>
