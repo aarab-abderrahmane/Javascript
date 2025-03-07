@@ -129,9 +129,136 @@ console.log(ex_node.childNodes)
 console.log(ex_node.children)
 console.log(ex_node.firstChild)
 console.log(ex_node.firstElementChild)
+console.log(ex_node.firstChild.nextElementSibling)
+console.log(ex_node.firstElementChild.nextElementSibling)
+console.log(ex_node.firstElementChild.nextSibling)
+
+
 
 
 //.childNodes	All nodes (comments, text, elements)
 //.children	Only elements (ignores comments & text)
 
+
+console.log('___________________________13__________')
+
+
+console.log(parseInt("010",8))  // (8 means base 8 --> octal system)
+
+
+console.log('___________________________14__________')
+
+// for loop
+for (let i = 1 ; i<6 ; i++){
+    console.log(i,"for loop")
+}
+
+//while loop
+
+let k=0;
+// while (!isNaN(k)) {
+//     console.log(k,"while loop");
+//     k++;
+// }  
+
+while (k<5){
+    console.log(k,"while loop");
+    k++;
+}
+
+
+// do .. while 
+
+let kk = 0 ;
+// do --> is the part of the code that will run at least once (au moins 1 repeat !)
+do { 
+    console.log(kk,"do while");
+    kk++;
+}while ( kk = 0)
+
+
+// for.. In loop
+// use when you need to iterate (get) over keys or indices (index)
+let person = {name : "abdulraman",age : 18, city : "Agadir"};
+for (let key in person) {
+    if(key ==="name") {
+        console.log('____for .. In loop')
+    }
+    console.log(key," : "+person[key]);
+}
+
+
+// for .. of loop
+// uses when you need to iterate over values
+let colors = ['red','green','yellow','blue',"brown"]
+for (let color of colors){
+    console.log(color);
+}
+
+
+// for .. in loop 
+// use when you need to iterate (get) over keys or indices (index)
+for(index in colors ){
+    console.log("index : "+index, colors[index])
+} 
+
+
+// forEach method (belongs to an object. kayntami)
+let numbers = [1,2,3,4,5];
+numbers.forEach(function(num){
+    console.log(num,"forEach mrthod")
+})
+
+console.log('___________________________15__________')
+
+let res = numbers.reduce(function(accumulator,current,index,array){ // index + array (optional)
+    console.log(accumulator,current,accumulator+current)
+    return accumulator+current;
+},0); // initial value is : 0
+console.log("total numbers : ", res)
+
+
+const  nestedArrays =  [ [1,2] , [3,4] , [5,6]];
+const flattened = nestedArrays.reduce(function(accumulator,currentValue){
+    console.log(accumulator,currentValue)
+    return accumulator.concat(currentValue)  // exempel append  == concat
+},[]) // initial with emty array
+
+console.log(flattened)
+
+
+const fruits_1 = ['apple','banana','orange','apple','banana','apple'];
+const count = fruits_1.reduce(function(accumulator,currentValue){
+
+        console.log(accumulator,currentValue,accumulator[currentValue])
+
+        accumulator[currentValue] = (accumulator[currentValue] || 0) +1;
+        //(accumulator[currentValue] || 0) +1)
+        // if currentValue (key) is not exist (undefined) in accumulator (dectionary {}) it will be 0  and +1 has been added
+        // if exist , the old value is kept and +1 is added
+        return accumulator
+},{}) // initial with emty dectionary 
+console.log(count)
+
+
+// abdu= {}
+// abdu['age']=18
+// abdu['city']='agadir'
+// abdu['age']=17
+// abdu['age']+=1
+// console.log(abdu)
+
+
+console.log('___________________________16__________')
+
+const elements_1 = ['fire',"Air","Water"];
+const aaa = elements_1.join();
+const bbb = elements_1.join('')
+const ccc = elements_1.join(' | ')
+
+
+console.log(elements_1)
+console.log(aaa)
+console.log(bbb)
+console.log(ccc)
 
