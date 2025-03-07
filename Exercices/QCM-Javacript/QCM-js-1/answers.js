@@ -242,6 +242,7 @@ console.log(count)
 
 
 // abdu= {}
+
 // abdu['age']=18
 // abdu['city']='agadir'
 // abdu['age']=17
