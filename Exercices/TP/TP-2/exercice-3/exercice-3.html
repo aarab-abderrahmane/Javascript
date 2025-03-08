@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            display:  flex;
+            flex-direction:  column ;
+
+        }
+
+        #date-2 {background-color: lightcoral;}
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <label for="date-1">Date 1 :</label>
+        <input type="date" id="date-1" required>
+        <label for="date-2">Date 2 :</label>
+        <input type="date" id="date-2" required>
+        <button onclick="calculer()">Calculer</button>
+        <p>Resultat : <span id="resultat"></span></p>
+    </div>
+
+    <script src="exercice-3.js"></script>
+</body>
+</html>
