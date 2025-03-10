@@ -47,7 +47,7 @@
             padding: 7px 20px;
             border-radius: 24px;
             color: white;
-            width: 14.28%;
+            width: 10%;
             display: flex;
             justify-content: center;
             transition: background-color 0.7s ease;
@@ -84,12 +84,40 @@
             background-color: rgba(128, 128, 128, 0.9);
         }    
         
-        .days {
+      
+
+        #days-container{
+            width: 100%;
+            margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(7,1fr);
             gap:10px;
             direction: rtl;
 
+        }
+
+        #days-container > .day{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 10vh;
+            box-sizing: border-box;
+           
+        }
+
+        #is_day{
+            border: 1px solid black;
+        }
+
+        #is_day:hover{
+            background-color: lightgoldenrodyellow;
+            cursor: pointer;
+        }
+
+        .global{
+            width: 70vw;
+            overflow: hidden;
         }
 
     </style>
@@ -105,18 +133,23 @@
             <p id="Month">مارس</p>
             <h1 id="Day">01</h1>
         </div>
-        <div class="header" id="header">
-            <div class="day-name">الاحد</div>
-            <div class="day-name">السبت</div>
-            <div class="day-name">الجمعة</div>
-            <div class="day-name">الخميس</div>
-            <div class="day-name">الاربعاء</div>
-            <div class="day-name">الثلاثاء</div>
-            <div class="day-name">الاتنين</div>
-        
 
+        <div class="global">
+            <div class="header" id="header">
+                <div class="day-name">الاحد</div>
+                <div class="day-name">السبت</div>
+                <div class="day-name">الجمعة</div>
+                <div class="day-name">الخميس</div>
+                <div class="day-name">الاربعاء</div>
+                <div class="day-name">الثلاثاء</div>
+                <div class="day-name">الاتنين</div>
+            
+    
+            </div>
+            <div class="days" id="days-container"></div>
+    
         </div>
-        <div class="days" id="days-container"></div>
+       
     </div>
 
     

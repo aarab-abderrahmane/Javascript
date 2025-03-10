@@ -56,10 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('#header .day-name')[index].style.backgroundColor="red"
     // Array.from(document.querySelectorAll('#header .day-name')).reverse()[tooday-1].style.backgroundColor="red";
 
+
 });
-
-
-
 
 
 
@@ -106,8 +104,15 @@ function generateRamadanCalendar(startDate){
         currentDay++;
     };
 
+   
+
     container.innerHTML=daysArray.map(day => {
-        return `<div class="day">${day}</div>`;
+        console.log(day)
+        if (day===""){
+            return `<div class="day" id="emty_div">${day}</div>`
+        }else{
+            return `<div class="day" id="is_day">${day}</div>`;
+        }
     }).join("");
 }
 
