@@ -1,3 +1,5 @@
+window.onload = updateUser()
+
 function getData(){
     fetch('http://localhost:3000/books',{
         method: 'Get',  // by default
