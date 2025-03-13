@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        
+        header{
+            display: flex;
+            justify-content: space-between;
+        }
+        header button{
+            background-color: green;
+            width: 80px;
+            height: 40px;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 70vw;
+        }
+
+        .container>input{
+            height: 40px;
+        }
+
+        .main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+
+        }
+
+        td,th{
+            border: 1px solid  black;
+
+        }
+
+   
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LOGO</h1>
+        <button onclick="afficherPanier()">Panier</button>
+    </header>
+
+    <div class="main">
+        <div class="container">
+            <input type="text" id="product_id" value="0" readonly>
+            <input type="text" id="product_name" placeholder="Product Name">
+            <input type="number" id="product_quantity" placeholder="Product quantity">
+            <input type="text" id="product_prix" placeholder="prix">
+            <button onclick="addProduct()">Add Product</button>
+            
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>quantity</th>
+                    <th>prix</th>
+                </tr>
+            </thead>
+            <tbody id="allproducts"></tbody>
+        </table>
+    </div>
+
+    
+
+    <script src="gestion-panier-site-e-commerce-1.js"></script>
+</body>
+</html>
