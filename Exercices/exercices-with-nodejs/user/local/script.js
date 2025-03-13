@@ -4,75 +4,85 @@ async function addUser() {
     const age = document.getElementById("age").value.trim();
     const resultat = document.getElementById("resultat");
 
-    // Validate the inputs
     if (!firstName || !lastName || !age) {
-        resultat.textContent = "All fields are required!";
-        resultat.style.color = "red";
+        alert("All fields are required!");
         return;
     }
 
     try {
         const response = await add_to(firstName, lastName, age);
         if (response.ok) {
-            const newUser = await response.json();
-            let li = document.createElement('tr');
-            li.innerHTML=`
-                    <td>${newUser.firstName}</td>
-                    <td>${newUser.lastName}</td>
-                    <td>${newUser.age}<td>
-            `
-            // resultat.textContent = `User added: ${newUser.firstName} ${newUser.lastName} (Age: ${newUser.age})`;
-            // resultat.style.color = "green";
-            // Clear the inputs after successful addition
             document.getElementById("firstName").value = '';
             document.getElementById("lastName").value = '';
             document.getElementById("age").value = '';
-            resultat.appendChild(li)
+
+            displayUsers();
         } else {
             throw new Error("Failed to add user");
         }
     } catch (error) {
-        resultat.textContent = `Error: ${error.message}`;
-        resultat.style.color = "red";
+        console.error("Error:", error.message);
     }
 }
 
 async function add_to(firstName, lastName, age) {
-    const url = "http://localhost:3000/users"; // Replace with your API endpoint
+    const url = "http://localhost:3000/users"; // مسار API
 
-    const userData = {
-        firstName,
-        lastName,
-        age
-    };
+    const userData = { firstName, lastName, age };
 
-    const response = await fetch(url, {
+    return await fetch(url, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData)
     });
-
-    displayUsers();
-    return response; }
-
-
-async function displayUsers(){
-    const response = await fetch("http://localhost:3000/users",{
-        method : 'Get'})
-        
-        .then(response => response.json())
-        .then(data => {
-            const newUser = JSON.stringify(data);
-            
-            let li = document.createElement('tr');
-            li.innerHTML=`
-                    <td>${newUser.firstName}</td>
-                    <td>${newUser.lastName}</td>
-                    <td>${newUser.age}<td>
-            `
-        })
-        .catch(error => console.error('Error : ',error))
-    
 }
+
+async function displayUsers() {
+    try {
+        const response = await fetch("http://localhost:3000/users");
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch users.");
+        }
+
+        const users = await response.json();
+        const resultat = document.getElementById("resultat");
+
+        resultat.innerHTML = "";
+
+        users.forEach(user => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.age}</td>
+                <td><button onclick="deleteUser(${user.id})">delete</button></td>
+            `;
+            resultat.appendChild(tr);
+        });
+    } catch (error) {
+        console.error("Error:", error.message);
+    }
+}
+
+
+async function deleteUser(userId){
+    try {
+        const response = await fetch(`http://localhost:3000/users/${userId}`,{
+            method: "DELETE"
+        })   ;
+
+        if(!response.ok){
+            throw new Error('Failed to delete user.')
+        }
+
+        displayUsers();
+
+    }catch(error){
+        console.log("Error : ",error);
+    }
+
+}
+
+
+window.onload = displayUsers;

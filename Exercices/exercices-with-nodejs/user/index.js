@@ -20,7 +20,7 @@ app.post("/users", (req, res) => {
     const newUser = { id: id++, firstName, lastName, age };
     users.push(newUser);
     res.status(201).json(newUser);
-    res.json("user add successfully!")
+    // res.json("user add successfully!")
 });
 
 // Read (Get All Users)
@@ -46,11 +46,26 @@ app.put("/users/:id", (req, res) => {
 });
 
 // Delete (Remove User)
-app.delete("/users/:id", (req, res) => {
+// app.delete("/users/:id", (req, res) => {
+//     const userId = parseInt(req.params.id);
+//     users = users.filter(u => u.id !== userId);
+//     res.json({ message: "User deleted successfully" });
+// });
+
+app.delete('/users/:id',(req,res)=>{
+
     const userId = parseInt(req.params.id);
-    users = users.filter(u => u.id !== userId);
-    res.json({ message: "User deleted successfully" });
-});
+
+    const userIndex = users.findIndex(u => u.id === userId);
+
+    if (userIndex === -1){
+        return res.status(404).json({message:"user not fonud"});
+    }
+
+    users.splice(userIndex,1)
+
+    res.json({message : "User deleted successfully"})
+})
 
 // Start Server
 app.listen(port, () => {
