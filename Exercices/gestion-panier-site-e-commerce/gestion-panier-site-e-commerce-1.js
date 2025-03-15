@@ -1,9 +1,11 @@
 let id=0
+let allProduct = []
+
 
 function addProduct(){
     const name = document.getElementById('product_name').value;
-    const quantity = document.getElementById('product_quantity').value;
-    const prix = document.getElementById('product_prix').value;
+    let quantity = document.getElementById('product_quantity').value;
+    let prix = document.getElementById('product_prix').value;
 
 
     if (!name || !quantity || !prix){
@@ -23,7 +25,43 @@ function addProduct(){
         alert('Plase enter an correct number!')
     }
 
-    quantity = parseInt(quantity)
-    prix = parseFloat(quantity)
+    quantity = parseInt(quantity);
+    prix = parseFloat(prix);
+
+    id++;
+    document.getElementById('product_id').value=id;
+    allProduct.push({id,name,quantity,prix})
+
+    updateTable()
 }
 
+
+function updateTable(){
+    let tablebody =document.getElementById('allproducts');
+    tablebody.innerHTML ="";
+
+
+    for (let i=0;i<allProduct.length;i++){
+        product = allProduct[i]
+
+        let tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td><input type="checkbox" value="${product.id}"></td>
+            <td>${product.id}</td>
+            <td>${product.name}</td>
+            <td>${product.quantity}</td>
+            <td>${product.prix}</td>
+            <td><button onclick="deleteProduct(${product.id})" class="btn-delete" >Delete</button></td>
+        `
+
+        tablebody.appendChild(tr)
+    }   
+    
+
+}
+
+function deleteProduct(idPr){
+    allProduct = allProduct.filter(product => product.id !== idPr)
+    updateTable()
+
+}
