@@ -46,7 +46,7 @@ function updateTable(){
 
         let tr = document.createElement('tr');
         tr.innerHTML = `
-            <td><input type="checkbox" value="${product.id}"></td>
+            <td><input type="checkbox" value="${product.id}" class="checkboxx" ></td>
             <td>${product.id}</td>
             <td>${product.name}</td>
             <td>${product.quantity}</td>
@@ -65,3 +65,34 @@ function deleteProduct(idPr){
     updateTable()
 
 }
+
+function delete_selected(){
+    const select_all = document.getElementById('select_all');
+    if (select_all.checked){
+
+        allProduct = []
+
+        updateTable()
+
+    }else{
+
+        document.querySelectorAll('.checkboxx').forEach((checkbox)=>{
+
+            if (checkbox.checked){
+                allProduct = allProduct.filter(product => product.id != checkbox.value)
+            }
+        })
+
+        updateTable()
+    }
+
+}
+
+
+const select_all = document.getElementById('select_all');
+
+select_all.addEventListener('change',()=>{
+    document.querySelectorAll('.checkboxx').forEach((checkbox)=>{
+        checkbox.checked = select_all.checked
+    })
+})
