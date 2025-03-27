@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const soumettre_button = document.getElementById('btn-submit');
 
-    gestion_error={"nom":"","email":'','age':'','date':'','gender':'','condition':'','file':'file'}
+    gestion_error={"nom":"","email":'','age':'','date':'','gender':'','contry':'','condition':'','file':'file'}
 
 
     if (soumettre_button){
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             gestion_error[key]="";
         })
 
-        console.log(condition.checked)
+        // console.log(condition.checked)
 
         !nom.value ? gestion_error['nom']=false : gestion_error['nom']=true;
 
@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         !date.value? gestion_error['date']=false: gestion_error['date']=true;
 
         !gender? gestion_error['gender']=false: gestion_error['gender']=true;
+
+        contry.value==="Choose..." ? gestion_error['contry']=false: gestion_error['contry']=true;
 
         !condition.checked? gestion_error['condition']=false: gestion_error['condition']=true;
 
@@ -62,6 +64,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         console.log(gestion_error)
 
+        const isAlltrue= Object.values(gestion_error).every(value => value===true)
+
+        const all_element=[age,date,gender,contry,condition,file_image]
+
+
+        if (isAlltrue){
+            return
+        }else{
+            all_element.forEach(el=>el.style.backgroundColor='red')
+        }
     }
 
 })

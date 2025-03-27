@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 1rem;
+        }
+    </style>
+  </head>
+
+  <body>
+
+
+    <div class="container alert alert-warning mt-5">
+
+        <h1>Formulaire de validation</h1>
+        <div class="mt-3">
+            <input id="nom" type="text" class="form-control rounded shadow-sm border-primary" placeholder="Enter your text...">
+            <span class="error">le nom est requis</span>
+        </div>
+
+        <div class="mt-3">
+            <input id="email" type="email" class="form-control rounded shadow-sm border-primary" placeholder="Enter your email...">
+            <span class="error">Email invalide</span>
+        </div>
+
+
+
+        <div class="mt-3 d-flex align-items-center ">
+            <h3>Sexe :</h3>
+            <div class="from-check mx-3">
+                <input type="radio" class="from-check-input" name="gender" id="homme" value="homme">
+                <label class="from-check-label" for="homme">Homme</label>
+            </div>
+
+            <div class="from-check">
+                <input type="radio" class="from-check-input" name="gender" id="femme" value="femme">
+                <label class="from-check-label" for="femme">Femme</label>
+            </div>
+        </div>
+
+        
+        <div class="from-check mt-3">
+            <h3>Centres d'intéret : </h3>
+            <div>
+                <input class="from-check-input" type="checkbox" id="sports-check">
+                <label for="sports-check" class="from-check-label">Sports</label>
+            </div>
+
+            <div>
+                <input class="from-check-input" type="checkbox" id="musique-check">
+                <label for="musique-check"></label>
+            </div>
+           
+        </div>
+
+        <div class="mt-3">
+            <h3>Pays :</h3>
+            <select class="form-select" id="contry">
+                <option selected disabled>Choose...</option>
+                <option value="morocco">Morocco</option>
+                <option vlaue="USA">USA</option>
+                <option value="canada">Canada</option>
+            </select>
+        </div>
+
+
+        <div class="mt-3"> 
+            <label class="form-label" for="file">Upload you image :</label>
+            <input type="file" class="form-control" id="file">
+        </div>
+
+        <div class="mt-3">
+            <button type="button" id="btn-submit" class="btn btn-success">Soumettre</button>
+        </div>
+
+    </div>
+    <div id="form-valide"></div>
+
+    <script src="validation-form.js"></script>
+  </body>
+</html>
