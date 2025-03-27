@@ -10,6 +10,17 @@
             font-family: monospace;
             font-size: 1rem;
         }
+
+        .error{
+            color: red;
+            margin-left: 10px;
+            display: none;
+        }
+
+        .not-complete{
+            border-color: red !important;
+        }
+
     </style>
   </head>
 
@@ -42,22 +53,55 @@
                 <input type="radio" class="from-check-input" name="gender" id="femme" value="femme">
                 <label class="from-check-label" for="femme">Femme</label>
             </div>
+            <span class="error">At least one must be chosen</span>
         </div>
 
         
-        <div class="from-check mt-3">
-            <h3>Centres d'intéret : </h3>
-            <div>
-                <input class="from-check-input" type="checkbox" id="sports-check">
-                <label for="sports-check" class="from-check-label">Sports</label>
+        <div>
+            <div class="from-check mt-3 d-flex align-items-center gap-4">
+                <h3>Centres d'intéret : </h3>
+                <div>
+                    <input class="from-check-input" type="checkbox" id="sports-check">
+                    <label for="sports-check" class="from-check-label">Sports</label>
+                </div>
+    
+                <div>
+                    <input class="from-check-input" type="checkbox" id="musique-check">
+                    <label for="musique-check" class="from-check-label">Musique</label>
+                </div>
+    
+                <div>
+                    <input class="from-check-input" type="checkbox" id="lecture-check">
+                    <label for="lecture-check" class="from-check-label">Lecture</label>
+                </div>
+                    
             </div>
-
             <div>
-                <input class="from-check-input" type="checkbox" id="musique-check">
-                <label for="musique-check"></label>
+                <span class="error">At least one must be chosen</span>
             </div>
-           
         </div>
+        
+
+        <div class="mt-3">
+            <h3>Hobbies :</h3>
+            <select class="form-select" id="hobbies">
+                <option selected disabled>Choose...</option>
+                <option value="Cinéma">Cinéma</option>
+                <option vlaue="Voyage">Voyage</option>
+                <option value="Cuisine">Cuisine</option>
+            </select>
+
+            <span class="error">you must choose a hobby</span>
+
+        </div>
+
+        <div class="mt-3">
+            <label for="message" class="form-label">Messge:</label>
+            <textarea placeholder="you message.." id="message" rows="4" class="form-control"></textarea>
+            <span class="error">Enter a message</span>
+
+        </div>
+
 
         <div class="mt-3">
             <h3>Pays :</h3>
@@ -67,12 +111,17 @@
                 <option vlaue="USA">USA</option>
                 <option value="canada">Canada</option>
             </select>
+
+            <span class="error">choose a pays</span>
+
         </div>
 
 
         <div class="mt-3"> 
             <label class="form-label" for="file">Upload you image :</label>
             <input type="file" class="form-control" id="file">
+            <span class="error">you must be choose image</span>
+
         </div>
 
         <div class="mt-3">
@@ -85,3 +134,16 @@
     <script src="validation-form.js"></script>
   </body>
 </html>
+
+<!-- nom obligatoire et doit contenir au moin 3 caratéres alphabétiques majuscules
+prenom obligatoir et doit au moins moin 3 caratéres alphabétiques minuscule ( le premier doit être majuscule)
+email obligatoire et doit être valide
+site web obligatoire et doit etre un url valide
+mot de passe obligatoire doit contenir au moins 6 caratéres (alphanumeriques et les caractéres [*-\#]
+skills (list of checkbox : html , javascript , node js , laravel) obligatoire 
+pays (select)  obvligatoire 
+Gender : deux radio button obligatoire
+commentaire (textArea) obligatoire et doit contenir au moins 10 caracéteres alphabetiques
+créer le code html css de la page 
+valider le formulaire
+afficher les données au niveau de la meme page  -->

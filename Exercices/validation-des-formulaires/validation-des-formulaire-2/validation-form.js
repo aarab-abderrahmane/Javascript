@@ -5,18 +5,28 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const nom = document.getElementById('nom');
     const email = document.getElementById('email');
-    const age = document.getElementById('age');
-    const date = document.getElementById('date');
 
-
+    const sports_check = document.getElementById('sports-check');
+    const musique_check = document.getElementById('musique-check');
+    const lecture_check = document.getElementById('lecture-check');
+    const hobbies = document.getElementById('hobbies');
+    const message = document.getElementById('message');
     const contry = document.getElementById('contry');
-    const condition = document.getElementById('check');
     const file_image = document.getElementById('file');
 
 
     const soumettre_button = document.getElementById('btn-submit');
 
-    gestion_error={"nom":"","email":'','age':'','date':'','gender':'','contry':'','condition':'','file':'file'}
+    //order
+    gestion_error={
+        "nom":"",
+        "email":'',
+        'gender':'',
+        'interet':'',
+        'hobbies':'',
+        'message':'',
+        'contry':'',
+        'file':''}
 
 
     if (soumettre_button){
@@ -38,15 +48,22 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         !email.value? gestion_error['email']=false : gestion_error['email']=true;
 
-        !age.value? gestion_error['age']=false: gestion_error['age']=true;
-
-        !date.value? gestion_error['date']=false: gestion_error['date']=true;
 
         !gender? gestion_error['gender']=false: gestion_error['gender']=true;
 
+        if (sports_check.checked || lecture_check.checked || musique_check.checked){
+            gestion_error['interet'] = true
+        }else{
+            gestion_error['interet'] = false
+        }
+
+        hobbies.value ==='Choose...' ? gestion_error['hobbies'] = false : gestion_error['hobbies']=true;
+
+        !message.value ? gestion_error['message']=false : gestion_error['message']=true;
+
         contry.value==="Choose..." ? gestion_error['contry']=false: gestion_error['contry']=true;
 
-        !condition.checked? gestion_error['condition']=false: gestion_error['condition']=true;
+
 
         if (file_image.files[0]){
 
@@ -66,13 +83,53 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         const isAlltrue= Object.values(gestion_error).every(value => value===true)
 
-        const all_element=[age,date,gender,contry,condition,file_image]
 
+        const all_element=[
+            nom,
+            email,
+            "gender",
+            "interet",
+            hobbies,
+            message,
+            contry,
+            file_image]
+
+        const all_errrs_classes = document.querySelectorAll('.error');
 
         if (isAlltrue){
-            return
+            all_errrs_classes.forEach(el=>el.style.display="none")
+            Object.keys(gestion_error).forEach((key,index)=> {
+
+                if (key!=="gender" && key!=="interet"){
+                    all_element[index].classList.remove('not-complete')
+                }
+            } )
+            
+            all_element.forEach(el=>el.classList.remove('not-complete'))
         }else{
-            all_element.forEach(el=>el.style.backgroundColor='red')
+            
+
+            Object.keys(gestion_error).forEach((key,index)=>{
+
+                console.log(index,key)
+                console.log("_______________________")
+
+                if(!gestion_error[key]===true && key!=="gender" && key!=="interet"){
+
+                    all_element[index].classList.add('not-complete')
+                        
+                }else if(gestion_error[key]===true && key!=="gender" && key!=="interet"){
+                    all_element[index].classList.remove('not-complete')
+                }
+
+                if(!gestion_error[key]===true){
+
+                    all_errrs_classes[index].style.display="inline"
+
+                }else{
+                    all_errrs_classes[index].style.display="none";
+                }
+            })
         }
     }
 
