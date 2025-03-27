@@ -135,6 +135,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                     Centres d'intéret : <b>${interet.join(' / ')}</b><br>
                     Hobbies : <b>${hobbies.value}</b><br>
                     </p>
+                    <img src='${e.target.result}' width=100 height=100 style="float: right;" />
+
                 </div>
                 <div>
                     <p>
@@ -142,7 +144,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                         <pre>${message.value}</pre>
                     </p>
                 </div>
-                <img src='${e.target.result}' width=100 height=100>
             `   
                 forms.appendChild(div);
             }
