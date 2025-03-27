@@ -21,6 +21,23 @@
             border-color: red !important;
         }
 
+        .from{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:10px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .form-valide{
+            display: flex;
+            justify-content: center;
+            border-top: 2px solid black;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
     </style>
   </head>
 
@@ -31,7 +48,7 @@
 
         <h1>Formulaire de validation</h1>
         <div class="mt-3">
-            <input id="nom" type="text" class="form-control rounded shadow-sm border-primary" placeholder="Enter your text...">
+            <input id="nom"  type="text" class="form-control rounded shadow-sm border-primary" placeholder="Enter your text...">
             <span class="error">le nom est requis</span>
         </div>
 
@@ -40,6 +57,17 @@
             <span class="error">Email invalide</span>
         </div>
 
+        <div class="mt-3">
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="password" >
+            </div>
+            <div>
+                <label for="conf-password" class="form-label">Confirm Password</label>
+                <input type="password" id="conf-password" class="form-control" placeholder="confirm password">
+            </div>
+            <span class="error" id="pass-error"></span>
+        </div>
 
 
         <div class="mt-3 d-flex align-items-center ">
