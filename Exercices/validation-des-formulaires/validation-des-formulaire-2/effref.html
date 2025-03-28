@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Validation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .error { color: red; display: none; }
+        .not-complete { border-color: red !important; }
+    </style>
+</head>
+<body class="container mt-5">
+    <h2>Validation Form</h2>
+    <form id="form">
+        <input type="text" id="nom" class="form-control mb-2" placeholder="Nom (Majuscule + 2 lettres min)">
+        <span class="error">Nom obligatoire et doit contenir au moins 3 caractères alphabétiques majuscules</span>
+
+        <input type="text" id="prenom" class="form-control mb-2" placeholder="Prénom (Majuscule initiale + 2 lettres min)">
+        <span class="error">Prénom obligatoire et doit contenir au moins 3 caractères alphabétiques</span>
+
+        <input type="email" id="email" class="form-control mb-2" placeholder="Email">
+        <span class="error">Email invalide</span>
+
+        <input type="url" id="siteweb" class="form-control mb-2" placeholder="Site Web">
+        <span class="error">Site web invalide</span>
+
+        <input type="password" id="password" class="form-control mb-2" placeholder="Mot de passe">
+        <span class="error">Mot de passe invalide (6 caractères alphanumériques et [*-#])</span>
+
+        <label>Compétences :</label>
+        <div class="form-check">
+            <input type="checkbox" id="html" class="form-check-input"> HTML
+        </div>
+        <div class="form-check">
+            <input type="checkbox" id="javascript" class="form-check-input"> JavaScript
+        </div>
+        <div class="form-check">
+            <input type="checkbox" id="nodejs" class="form-check-input"> Node.js
+        </div>
+        <div class="form-check">
+            <input type="checkbox" id="laravel" class="form-check-input"> Laravel
+        </div>
+        <span class="error">Sélectionnez au moins une compétence</span>
+
+        <select id="pays" class="form-select mb-2">
+            <option value="">Choisissez un pays</option>
+            <option value="morocco">Maroc</option>
+            <option value="france">France</option>
+        </select>
+        <span class="error">Choisissez un pays</span>
+
+        <label>Genre :</label>
+        <div class="form-check">
+            <input type="radio" name="gender" value="male" class="form-check-input"> Homme
+        </div>
+        <div class="form-check">
+            <input type="radio" name="gender" value="female" class="form-check-input"> Femme
+        </div>
+        <span class="error">Veuillez sélectionner un genre</span>
+
+        <textarea id="commentaire" class="form-control mb-2" placeholder="Commentaire (10 caractères min)"></textarea>
+        <span class="error">Le commentaire doit contenir au moins 10 caractères alphabétiques</span>
+
+        <input type="file" id="photo" class="form-control mb-2">
+        <span class="error">Veuillez sélectionner une image</span>
+
+        <button type="submit" class="btn btn-success mt-3">Soumettre</button>
+    </form>
+
+    <div id="result" class="mt-4"></div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let errors = false;
+            const nomPattern = /^[A-Z][A-Za-z]{2,}$/;
+            const prenomPattern = /^[A-Z][a-z]{2,}$/;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const siteWebPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/;
+            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[\*\-#])[A-Za-z\d\*\-#]{6,}$/;
+            const commentairePattern = /^[A-Za-z ]{10,}$/;
+            
+            function validateField(field, pattern) {
+                let valid = pattern.test(field.value);
+                field.classList.toggle('not-complete', !valid);
+                field.nextElementSibling.style.display = valid ? 'none' : 'block';
+                return valid;
+            }
+            
+            let validNom = validateField(nom, nomPattern);
+            let validPrenom = validateField(prenom, prenomPattern);
+            let validEmail = validateField(email, emailPattern);
+            let validSiteWeb = validateField(siteweb, siteWebPattern);
+            let validPassword = validateField(password, passwordPattern);
+            let validPays = pays.value !== "";
+            pays.nextElementSibling.style.display = validPays ? 'none' : 'block';
+            
+            let validSkills = html.checked || javascript.checked || nodejs.checked || laravel.checked;
+            document.querySelectorAll('.error')[6].style.display = validSkills ? 'none' : 'block';
+            
+            let validGender = document.querySelector('input[name="gender"]:checked') !== null;
+            document.querySelectorAll('.error')[7].style.display = validGender ? 'none' : 'block';
+            
+            let validCommentaire = validateField(commentaire, commentairePattern);
+            
+            let validPhoto = photo.files.length > 0;
+            photo.nextElementSibling.style.display = validPhoto ? 'none' : 'block';
+            
+            if (validNom && validPrenom && validEmail && validSiteWeb && validPassword && validPays && validSkills && validGender && validCommentaire && validPhoto) {
+                let resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = '';
+                let info = document.createElement('div');
+                info.innerHTML = `<p><b>Nom:</b> ${nom.value}</p>
+                                  <p><b>Prénom:</b> ${prenom.value}</p>
+                                  <p><b>Email:</b> ${email.value}</p>
+                                  <p><b>Site Web:</b> ${siteweb.value}</p>
+                                  <p><b>Pays:</b> ${pays.value}</p>`;
+                
+                let img = document.createElement('img');
+                let reader = new FileReader();
+                reader.readAsDataURL(photo.files[0]);
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                    img.width = 100;
+                    img.height = 100;
+                    resultDiv.appendChild(info);
+                    resultDiv.appendChild(img);
+                };
+            }
+        });
+    </script>
+</body>
+</html>
