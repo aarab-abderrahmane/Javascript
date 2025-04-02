@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../../bootstrap/css(BS).css" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #0e0c15;
+            color: #b986df;
+        }
+
+        *{
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+
+
+        input[type="text"],input[type="number"]{
+            border-style: dashed !important;
+        }
+
+
+        input{
+            background-color: #151b21 !important;
+            color: gray !important;
+        }
+
+        
+        table{
+            font-size: 0.8rem;
+        }
+
+
+        .table-img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+
+    </style>
+
+    
+
+</head>
+<body>
+    
+
+
+</body>
+
+    <div class="container mt-5">
+        <h1>Gestionnaire de Produits</h1>
+        <label for="productName" class="form-label ">Nom du produit :</label>
+        <input type="text" id="productName" class="form-control border border-light border-1" >
+        <label for="productPrice"  class="form-label">Price :</label>
+        <input type="number" class="form-control border border-light border-1" id="productPrice">
+        <label for="productImage" class="form-label" >Image :</label>
+        <input type="file" class="form-control border border-light border-1" id="productImage">
+        <div class="mt-3">
+            <button onclick="addProduct()" class="btn btn-success">Ajouter</button>
+            <button onclick="deleteProduct() " class="btn btn-danger">Supprimer</button>
+        </div>
+
+    </div>
+
+    <div >
+        <table class=" mt-5 table table-striped table-bordered table-dark table-hover">
+            <thead>
+
+                <tr>
+                  <th><input type="checkbox" id="check-all" class="from-check" /></th>
+                  <th>image</th>
+                  <th>name</th>
+                  <th>price</th>
+                  <th>buttons</th>
+                </tr>
+                
+            </thead>
+            <tbody id="productList"></tbody>
+
+
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded",loadProducts)
+
+        function addProduct(){
+            let name = document.getElementById('productName').value;
+            let price = document.getElementById('productPrice').value;
+            let imageInput = document.getElementById('productImage');
+            let image = imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : "";
+            
+            let products = JSON.parse(localStorage.getItem("products")) || [];
+            let id = new Date().getTime();
+            products.push({id,name,price,image})
+            localStorage.setItem('products',JSON.stringify(products));
+            loadProducts();
+        }
+
+        function loadProducts(){
+            let products = JSON.parse(localStorage.getItem('products')) || [];
+            const prodList = document.getElementById('productList');
+            prodList.innerHTML='';
+            products.forEach(prod=>{
+
+                let tr = document.createElement('tr');
+                tr.classList.add('product-div');
+                tr.innerHTML=`
+                    <td><input type="checkbox" class="form-check" data-id="${prod.id}" /></td>        
+                    <td><img src="${prod.image}" alt="empty_image" class="table-img" /></td>
+                    <td><div>${prod.name}</div></td>
+                    <td><div>${prod.price}</div></td>
+                    <td>
+                        <div>
+                            <button class='btn btn-warning' onclick='modifyProduct(${prod.id})'>Modify</button>
+                            <button class='btn btn-danger' onclick='deleteProduct(${prod.id})'>Delete</button>
+                        </div>
+                    </td>
+
+                `;
+                prodList.appendChild(tr);
+
+
+            })
+
+        }
+
+        function deleteProduct(id){
+
+            let products = JSON.parse(localStorage.getItem('products')) ;
+            products =  products.filter(prod => prod.id !== id);
+            localStorage.setItem("products",JSON.stringify(products));
+            loadProducts();
+        }
+
+        const checkAll = document.getElementById("check-all");
+
+        checkAll.addEventListener('change',function(){
+            document.querySelectorAll('.form-check').forEach((checkbox)=>{
+                checkbox.checked = checkAll.checked;
+            })
+
+        })
+
+
+
+    </script>
+
+</html>
