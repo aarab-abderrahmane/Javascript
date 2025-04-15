@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Gemini AI Chat</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        #response { white-space: pre-wrap; margin-top: 20px; }
+    </style>
+    </head>
+    <body>
+    <h1>Chat with Gemini AI</h1>
+    
+    <textarea id="userInput" rows="4" cols="50" placeholder="Type your message..."></textarea><br><br>
+    <button onclick="sendMessage()">Send</button>
+
+    <div id="response"></div>
+
+    <script>
+        const API_KEY = "AIzaSyCk-vm4t810nXHg-XpUvK03kGR7fH9JXgY"; // Put your actual key here
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+
+        async function sendMessage() {
+        const userInput = document.getElementById('userInput').value;
+
+        const body = {
+            contents: [{
+            parts: [{ text: userInput }]
+            }]
+        };
+
+        const res = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        });
+
+        const data = await res.json();
+        const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+
+        document.getElementById('response').textContent = reply;
+        }
+    </script>
+    </body>
+</html>
