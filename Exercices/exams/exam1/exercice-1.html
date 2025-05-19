@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form , fieldset{
+            display: flex;
+            flex-direction: column;
+            gap:15px
+        }
+
+        form{
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+        input:not([type="radio"]){
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <h1>Formulaire de Réservation de billets</h1>
+        <fieldset>
+
+            <legend>IDENTIFICATION</legend>
+
+            <div>
+                <label for="nom">Nom Complet: </label>
+                <input type="text" id="nom">
+            </div>
+
+            <div>
+                <label for="ville">Ville de Depart: </label>
+                <select  id="ville">
+                    <option value="rabat">rabat</option>
+                    <option value="kenitra">kenitra</option>
+                    <option value="fés">Fés</option>
+                    <option value="oujda">Oujda</option>
+                </select>
+            </div>
+
+
+            <div>
+                    <label >Confort</label>
+                    <div >
+                        <input type="radio" name="confort" id="classe1">
+                        <label for="classe1">1ere Classe</label>
+
+                        
+                        <input type="radio" name="confort" id="classe2">
+                        <label for="classe2">2ere Classe</label>
+                    </div>
+            </div>
+
+            <div>
+                <label for="nbrPersonnes">Nombre de Personnes : </label>
+                <input type="number" id="nbrPersonnes">
+            </div>
+
+
+            <div>
+                <button id="calculer">Calculer</button>
+                <div>
+                    <label for="total">Total: </label>
+                    <input type="text" id="total" readonly>
+                </div>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend>Paiement</legend>
+
+            <div>
+                    <label >Paiement par : </label>
+                    <div>
+                        <input type="radio" name="choice" id="carteBanc">
+                        <label for="carteBanc">Carte Bancaire (numero) : </label>
+                        <input type="number" id="numBanc">
+                    </div>
+            </div>
+
+            <div>
+                <input type="radio" name="choice" id="especes">
+                <label for="especes">Especes: </label>
+                <input type="text" id="especesInput">
+            </div>
+
+            <div>
+                <button id="validForm">Valider Formulaire</button>
+                <button type="reset">Effacer</button>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <script src="exercice-1.js"></script>
+</body>
+</html>
