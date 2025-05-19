@@ -12,6 +12,10 @@ console.log(parseFloat("4.5"))
 console.log(Number.isInteger(98) )
 console.log(Number.isInteger('98') )
 console.log(Number.isInteger('9'+9))
+console.log('9'+'9')
+console.log('9'-'9')
+
+
 console.log(Number.isNaN(9))
 console.log(Number.isNaN('hello'+9) ) // why false(not true) , In js the + is a considered a merge (integer + ..) and not a operation  
 
