@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Full Bootstrap Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+
+        body{
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1003%26quot%3b)' fill='none'%3e%3cpath d='M998.19 430.94a15.39 15.39 0 1 0 28.94-10.46z' stroke='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M189.44 476.35L225.29 476.35L225.29 512.2L189.44 512.2z' fill='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M808.42 285.52a25.8 25.8 0 1 0 48.49-17.64z' fill='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M511.35 352.54a0.93 0.93 0 1 0-0.63 1.75z' fill='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M412.79 489.05 a5.61 5.61 0 1 0 11.22 0 a5.61 5.61 0 1 0 -11.22 0z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M1266.98 546.52L1284.62 546.52L1284.62 564.16L1266.98 564.16z' stroke='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M560.7 483.64L585.83 483.64L585.83 505.19L560.7 505.19z' stroke='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M1111.36 148.41L1152.76 148.41L1152.76 167.38L1111.36 167.38z' fill='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M16.12 349.68L22.63 349.68L22.63 399.23L16.12 399.23z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M855.46 327.63 a11.72 11.72 0 1 0 23.44 0 a11.72 11.72 0 1 0 -23.44 0z' stroke='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M1242.28 127.21L1271.83 127.21L1271.83 138.11L1242.28 138.11z' stroke='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M759.8 389.97L772.99 389.97L772.99 415.88L759.8 415.88z' stroke='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M1229.61 548.79 a47.73 47.73 0 1 0 95.46 0 a47.73 47.73 0 1 0 -95.46 0z' fill='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M685.93 21.81L702.06 21.81L702.06 37.94L685.93 37.94z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M62.4 293.81a37.17 37.17 0 1 0 71.54 20.24z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M901.53 457.99a13.3 13.3 0 1 0-12.9-23.27z' fill='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M72.77 146.94 a48.41 48.41 0 1 0 96.82 0 a48.41 48.41 0 1 0 -96.82 0z' fill='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M247.98 519.97L292.08 519.97L292.08 566.12L247.98 566.12z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M860.46 368.49 a28.29 28.29 0 1 0 56.58 0 a28.29 28.29 0 1 0 -56.58 0z' fill='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M506.25 84.36L515.12 84.36L515.12 98.85L506.25 98.85z' stroke='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M108.64 201.35L123.79 201.35L123.79 211.41L108.64 211.41z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M107.85 386.82L127.18 386.82L127.18 397.26L107.85 397.26z' stroke='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M27.93 502.06a4.79 4.79 0 1 0-1.81-9.41z' stroke='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M348.67 291.79a11.73 11.73 0 1 0 23.46-0.4z' fill='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M999.26 81.68L1054.33 81.68L1054.33 82.41L999.26 82.41z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M623.81 274.05L628.21 274.05L628.21 298.86L623.81 298.86z' stroke='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M625.79 130.36L654.3 130.36L654.3 142.14L625.79 142.14z' stroke='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3cpath d='M318.45 158.48L367.72 158.48L367.72 207.75L318.45 207.75z' stroke='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M634.54 253.87a41.43 41.43 0 1 0 77.36-29.68z' stroke='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M1434.07 435.9a2.79 2.79 0 1 0 2.36 5.06z' fill='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M251.95 203.32L281.54 203.32L281.54 239.9L251.95 239.9z' fill='rgba(231%2c 54%2c 53%2c 0.49)'%3e%3c/path%3e%3cpath d='M1360.79 370.14a22.21 22.21 0 1 0-43.76-7.62z' stroke='rgba(211%2c 183%2c 20%2c 0.46)'%3e%3c/path%3e%3cpath d='M504.17 360.82a22.23 22.23 0 1 0 33.69-29.02z' fill='rgba(3%2c 123%2c 11%2c 0.52)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1003'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+        }   
+
+        label:not(label[data-label="1"],
+        label[data-label="2"],
+        label[data-label="3"]){
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Comprehensive Bootstrap Form</h2>
+    <form>
+
+        <!-- Text input -->
+        <div class="mb-3">
+        <label for="textInput" class="form-label">Text Input</label>
+        <input type="text" class="form-control" id="textInput" placeholder="Enter text">
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+        </div>
+
+        <!-- Number -->
+        <div class="mb-3">
+        <label for="numberInput" class="form-label">Number</label>
+        <input type="number" class="form-control" id="numberInput" placeholder="Enter number">
+        </div>
+
+        <!-- Range -->
+        <div class="mb-3">
+        <label for="rangeInput" class="form-label">Range</label>
+        <p class="text-center">value : <span id="rangeValue" ></span></p>
+        <input type="range" class="form-range" id="rangeInput" min="0" max="100" value="50">
+        </div>
+
+        <!-- Date -->
+        <div class="mb-3">
+        <label for="dateInput" class="form-label">Date</label>
+        <input type="date" class="form-control" id="dateInput">
+        </div>
+
+        <!-- URL -->
+        <div class="mb-3">
+        <label for="urlInput" class="form-label">URL</label>
+        <input type="url" class="form-control" id="urlInput" placeholder="https://example.com">
+        </div>
+
+        <!-- File input for PDF -->
+        <div class="mb-3">
+        <label for="pdfInput" class="form-label">Upload PDF</label>
+        <input type="file" class="form-control" id="pdfInput" accept=".pdf">
+        </div>
+
+        <!-- File input for Image -->
+        <div class="mb-3">
+        <label for="imageInput" class="form-label">Upload Image</label>
+        <input type="file" class="form-control" id="imageInput" accept="image/*">
+        </div>
+
+        <!-- Single select -->
+        <div class="mb-3">
+        <label for="singleSelect" class="form-label">Single Select</label>
+        <select class="form-select" id="singleSelect">
+            <option selected disabeld>Select one</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        </div>
+
+        <!-- Multi select -->
+        <div class="mb-3">
+        <label for="multiSelect" class="form-label">Multi Select</label>
+        <select multiple class="form-select" id="multiSelect">
+            <option value="a">Option A</option>
+            <option value="b">Option B</option>
+            <option value="c">Option C</option>
+        </select>
+        </div>
+
+        <!-- Textarea -->
+        <div class="mb-3">
+        <label for="textareaInput" class="form-label">Textarea</label>
+        <textarea class="form-control" id="textareaInput" rows="3"></textarea>
+        </div>
+
+        <!-- Radio Buttons -->
+        <div class="mb-3">
+        <label class="form-label">Radio Options</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radioGroup" id="radio1" value="option1">
+            <label class="form-check-label" for="radio1" data-label="1">Option 1</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radioGroup" id="radio2" value="option2">
+            <label class="form-check-label" for="radio2" data-label="2">Option 2</label>
+        </div>
+        </div>
+
+        <!-- Checkbox Group -->
+        <div class="mb-3">
+        <label class="form-label">Checkbox Options</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="check1" id="check1">
+            <label class="form-check-label" for="check1" data-label="1">Checkbox 1</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="check2" id="check2">
+            <label class="form-check-label" for="check2" data-label="2">Checkbox 2</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="check3" id="check3">
+            <label class="form-check-label" for="check3" data-label="3">Checkbox 3</label>
+        </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" id="sumbit-btn" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+</html>
