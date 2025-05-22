@@ -1,1 +1,211 @@
-<script src="exercice2.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="exercice2.js"></script>
+    <title>Document</title>
+
+    <style>
+        *::selection{
+            background-color: #ff000086;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0b0b0b;
+            color: white;
+        }
+
+        form {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+
+        label {
+            color: #9d9d9d;
+        }
+
+        input,
+        select {
+            background-color: #171717;
+            outline: none;
+            padding: 7px 10px;
+            border-radius: 7px;
+            border: 1px solid gray;
+            color: white;
+            font-family: monospace;
+
+        }
+
+        input[type='text'],
+        input[type='number'],
+        select {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        #submit {
+            background-color: #cecece;
+            padding: 10px 0;
+            border: 1px solid #cecece;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        fieldset {
+            border-radius: 10px;
+            border-width: 1px;
+        }
+
+        input[type="checkbox"] {
+            border-radius: 10px;
+        }
+
+        .custom-checkbox input[type='checkbox'] {
+            display: none;
+        }
+
+        /* Hide the default checkbox */
+        .custom-checkbox input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Custom checkbox design */
+        .custom-checkbox .checkmark {
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            border: 2px solid #ccc;
+            display: inline-block;
+            position: relative;
+            margin-right: 10px;
+            vertical-align: middle;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Checkmark (✓) when checked */
+        .custom-checkbox input[type="checkbox"]:checked+.checkmark::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 6px;
+            height: 12px;
+            border:  solid #ff0000;
+            border-width: 0 3px 3px 0;
+            transform: rotate(40deg);
+
+        }
+
+        /* Hover effect */
+        .custom-checkbox:hover .checkmark {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <form>
+        <h2>Formulaire d'inscription</h2>
+        <div>
+            <label for="nom">Nom : </label>
+            <input type="text" id="nom">
+        </div>
+
+        <div>
+            <label for="prenom">Prénom : </label>
+            <input type="text" id="prenom">
+        </div>
+
+        <div>
+            <label for="age">Age : </label>
+            <input type="number" id="age">
+        </div>
+
+        <label for="sexe">Sexe : </label>
+        <div id="sexe">
+            <input type="radio" name="gender" id="fem">
+            <label for="fem">Féminin</label>
+            <input type="radio" name="gender" id="mas">
+            <label for="mas">Masculin</label>
+        </div>
+
+        <label for="pays">Pays : </label>
+        <select name="" id="pays">
+            <option value="maroc">Maroc</option>
+            <option value="belgique">Belgique</option>
+        </select>
+
+        <fieldset>
+            <legend>Descipline :</legend>
+            <div style="display: flex;gap:25px">
+                <div style="display: flex ; flex-direction:column ; gap:10px">
+                    <div >
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="marathon">
+                            <span class="checkmark"></span>
+                            Marathon
+                        </label>
+                        <label for="marathon"></label>
+                    </div>
+                    <div >
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="natation">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="natation">Natation</label>
+                    </div>
+
+
+
+                </div>
+
+                <div style="display: flex ; flex-direction:column ; gap:10px">
+                    <div >
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="sprint">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="sprint">Sprint</label>
+                    </div>
+
+                    <div >
+
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="saut">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="saut">Saut</label>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </fieldset>
+
+        <button id="submit">Enregistrer</button>
+    </form>
+
+    <script src="pratique.js"></script>
+
+
+</body>
+
+</html>
