@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="exercice2.js"></script>
+    <!-- <script src="exercice2.js"></script> -->
     <title>Document</title>
 
     <style>
@@ -18,6 +18,7 @@
         body {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #0b0b0b;
@@ -114,13 +115,81 @@
         .custom-checkbox:hover .checkmark {
             background-color: #f0f0f0;
         }
+
+        table{
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid gray;
+            width: 80vw;
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+
+        td,th{
+            border: 1px solid gray;
+            padding: 5px 10px;
+
+        }
+
+        tr > th {
+            background-color: rgba(203, 58, 58, 0.47);
+        }
+
+        td{
+            max-width: 150px;
+            overflow-x:auto;
+            color: white;
+        }
+
+
+        #list_options{
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap:15px;
+        }
+
+
+        #list_options  button{
+            border-radius: 30px;
+            padding: 10px 15px;
+            border: 1px solid rgb(255, 255, 255);
+            outline-offset: 3px;
+            transition: background-color 0.7s linear;
+            cursor:pointer;
+        }
+
+        #supprimer{
+            outline: 1px solid red;
+            
+        }
+        
+        #modifier{
+            outline: 1px solid green;
+        }
+
+        #supprimer:hover{
+            background-color: rgb(245, 128, 128);
+        }
+
+        #modifier:hover{
+            background-color: rgb(142, 251, 142);
+        }
+
+        tr:hover{cursor: pointer;overflow: hidden;}
+
+        .action-row td{
+            border-top: none;
+        }
+
     </style>
 </head>
 
+
 <body>
-
-
-
     <form>
         <h2>Formulaire d'inscription</h2>
         <div>
@@ -140,9 +209,9 @@
 
         <label for="sexe">Sexe : </label>
         <div id="sexe">
-            <input type="radio" name="gender" id="fem">
+            <input class="sexe" type="radio" value="feminin" name="gender" id="fem">
             <label for="fem">Féminin</label>
-            <input type="radio" name="gender" id="mas">
+            <input class="sexe" type="radio" value="masculin" name="gender" id="mas">
             <label for="mas">Masculin</label>
         </div>
 
@@ -202,6 +271,26 @@
 
         <button id="submit">Enregistrer</button>
     </form>
+
+    <div id="table" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                <th>Nom</th>
+                <th>prenom</th>
+                <th>age</th>
+                <th>sexe</th>
+                <th>pays</th>
+                <th style="overflow: hidden;">discipline</th>
+            </tr>
+            </thead>
+
+            <tbody id="result"></tbody>
+        </table>
+    </div>
+
+
+    
 
     <script src="pratique.js"></script>
 
