@@ -9,6 +9,15 @@ document.getElementById('submit').addEventListener('click',function(event){
 
 window.onload = function(){Display();addEvent()};
 
+function generateRandomString(length) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+    }
+
 
 function validerForm() {
     const nom = document.getElementById("nom").value.trim();
@@ -59,6 +68,7 @@ function validerForm() {
 
     let data = JSON.parse(localStorage.getItem('data') || '[]');
     data.push({
+        'id':generateRandomString(10),
         'nom':nom,
         'prenom':prenom,
         "age":age,
@@ -70,10 +80,6 @@ function validerForm() {
 
     localStorage.setItem('data',JSON.stringify(data))
 
-
-
-
-
     return true;
 
 }
@@ -82,6 +88,7 @@ function validerForm() {
 function Display(){
     let data = JSON.parse(localStorage.getItem('data') || '[]');
     if (data.length === 0){
+        document.getElementById('table').style.display="none";
         const div = document.createElement('div');
         div.classList.add('alert');
         div.innerHTML=`<h1  style="color:white">No data found!</h1>`;
@@ -95,6 +102,7 @@ function Display(){
         const table_result = document.getElementById('result');
         table_result.innerHTML="";
         data.forEach(dic=>{
+
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td >${dic['nom']}</td>
@@ -107,6 +115,8 @@ function Display(){
 
             table_result.appendChild(tr);
         })
+
+        addEvent()
     }
 }
 
@@ -125,14 +135,14 @@ document.addEventListener('keydown',function(event){
 
 
 function addEvent() {
-    let index = 0;
+    data = JSON.parse(localStorage.getItem('data') || '[]');
+
     const all_rows = [...document.querySelectorAll('tr')];
 
     all_rows.forEach(function (row,index) {
-        index+=1;
-        if (index===1) return;
+        if (index===0) return;
 
-        index%2 !== 0 ? row.style.backgroundColor=" rgba(144, 238, 144, 0.108)" : "";
+        index%2 == 0 ? row.style.backgroundColor=" rgba(144, 238, 144, 0.108)" : "";
 
         row.addEventListener('click', function (e) {
 
@@ -154,18 +164,34 @@ function addEvent() {
 
         const new_td = document.createElement('td');
         new_td.colSpan = tds.length;
+
         new_td.innerHTML = `
             <div id="list_options">
-            <button id="supprimer">Supprimer</button>
+            <button id="supprimer" value="${data[index-1]['id']}">Supprimer</button>
             <button id="modifier">Modifier</button>
             </div>`;
         newRow.appendChild(new_td);
 
         row.parentNode.insertBefore(newRow, row.nextSibling);
+        document.getElementById('supprimer').addEventListener('click',function(e){
+            deleteRow(this.value)
+        })
+
         });
 
         
         
-        
     });
     }
+
+
+
+function deleteRow(id){
+    data = JSON.parse(localStorage.getItem('data'));
+    data = data.filter(row => row['id'] !==  id)
+    localStorage.setItem('data',JSON.stringify(data));
+
+    Display()
+
+}
+
