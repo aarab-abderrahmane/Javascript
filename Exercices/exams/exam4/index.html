@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        body{
+            background-color: #1b1c1d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image{
+            width: 150px;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-right: 2px solid gray;
+
+
+            
+        }
+
+        #container{
+            width: 75vw;
+            max-width: 700px;
+            border: 1px solid gray;
+            padding: 10px;
+            margin: 10px 15px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+        }
+
+        .livre{
+            background-color: #113860;
+            border-radius: 15px;
+            display: flex;
+            gap: 10px;
+            color: white;
+            align-items: stretch;
+
+        }
+
+        #search{
+            background-color: #1b1c1d;
+            width: 40vw;
+            max-width: 400px;
+            border: 1px solid gray;
+            border-radius: 30px;
+            padding: 15px;
+            color: white;
+        }
+
+        #search:focus{
+            outline: 1px solid  rgb(39, 255, 6);
+            outline-offset: 3px;
+        }
+
+        .liv_info{
+            padding: 5px;
+        }
+        .liv_info button{
+            border-radius: 7px;
+            border: none;
+            padding: 5px;
+        }
+
+        .alert{
+            color: rgba(219, 46, 43, 0.621);
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="container"></div>
+    <div><input id="search" type="text" placeholder="Search.."></div>
+
+    <script src="pratique.js"></script>
+</body>
+</html>
