@@ -1,0 +1,3 @@
+﻿Term,Description,Example
+JSON (string),A text format used to represent structured data. Often used in APIs and config files.,&#39;{&quot;nom&quot;:&quot;Afrique&quot;}&#39;
+JavaScript Object/Array,Data stored in memory as an actual object or array, not a string. Used during runtime.,[{ nom: &quot;Afrique&quot; }, { nom: &quot;Europe&quot; }]
