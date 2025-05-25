@@ -251,3 +251,32 @@ localStorage.clear(); // all
 let arr = [1, 2, 3, 4];
 arr = [];
 
+
+
+class Person{
+
+    // properties (private)
+    #nom 
+    #pernom
+    constructor(nom,prenom,age){
+        this.#nom = nom;
+        this.#pernom = prenom;
+        this.age = age
+    }
+
+}
+
+
+//inheritance
+
+class Student extends Person {
+
+    constructor(nom,prenom,age,niveau){
+        super(nom,prenom,age)
+        this.niveau = niveau
+    }
+
+}
+
+const p1 = new Person("aarab","abderrahmane",18)
+const s1 = new Person("aarab","abderrahmane",18,"ex")
