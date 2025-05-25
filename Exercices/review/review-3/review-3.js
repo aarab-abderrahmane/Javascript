@@ -101,7 +101,7 @@ let role = prompt('what is your role ? :');
 
 switch(role){
 
-    case 'admin':     //hala
+    case 'admin':     //state
         console.log('create + update + delete')
         break 
     
