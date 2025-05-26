@@ -7,6 +7,7 @@ let datastring= [
 
 function chargerDonnees(){
 
+    
     document.getElementById('rows').innerHTML="";
 
     datastring.forEach(data=>{
