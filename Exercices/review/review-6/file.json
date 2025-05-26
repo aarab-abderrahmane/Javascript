@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nom": "Jean Dupont",
+    "email": "jean.dupont@example.com",
+    "age": 28,
+    "ville": "Paris"
+  },
+  {
+    "id": 2,
+    "nom": "Alice Martin",
+    "email": "alice.martin@example.com",
+    "age": 32,
+    "ville": "Lyon"
+  },
+  {
+    "id": 3,
+    "nom": "Mohamed Ali",
+    "email": "mohamed.ali@example.com",
+    "age": 25,
+    "ville": "Marseille"
+  }
+]
