@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 60vw;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        button{
+            color:blue
+        }
+
+        .url{
+            color:red
+        }
+
+        tr,table{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="alert"></div>
+
+    <form>
+
+        Nom
+        <input type="text" id="nom">
+
+        prenom
+        <input type="text" id="prenom">
+
+        téléphone
+        <input type="tel" id="téléphone">
+
+        date de Naissance
+        <input type="date" id="date">
+
+        adresse 
+        <input type="text" id="adr">
+        <div id="nbr_mots"></div>
+
+        pays 
+        <select  id="pays">
+            <option value="" disabled selected>Sélectionnez un pays</option>
+            <option value="maroc">Maroc</option>
+            <option value="france">france</option>
+
+        </select>
+
+        site web 
+        <input type="url" id="site_web">
+
+        <button id="submit">Submit</button>
+
+    </form>
+
+    <div id="resultat">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>nom</th>
+                    <th>prenom</th>
+                    <th>telephone</th>
+                    <th>adresse</th>
+                    <th>pays</th>
+                    <th>site web</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+
+
+    </div>
+
+    <script src="pratique.js"></script>
+</body>
+</html>
