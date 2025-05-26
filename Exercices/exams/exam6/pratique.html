@@ -32,6 +32,14 @@
         tr,table{
             padding: 20px;
         }
+
+        .display{
+            opacity: 0;
+        }
+
+        #resultat{
+            transition: opacity 2s  ease;  /*effet fondu (opacity) */
+        }
     </style>
 </head>
 <body>
@@ -70,6 +78,11 @@
         <button id="submit">Submit</button>
 
     </form>
+
+    <div>
+        <input type="text" id="filter">
+        <button onclick="display()">Display</button>
+    </div>
 
     <div id="resultat">
 

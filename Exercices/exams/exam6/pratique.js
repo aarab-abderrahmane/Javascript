@@ -5,12 +5,13 @@ let datastring= [
 {"nom":"Smith", "prenom": "John", "telephone": "0711223344","dateNaissance": "2000-07-20","adresse": "5 rue du Château", "pays": "canada", "siteWeb": "http://www.johnsmith.ca"}
 ]
 
-function chargerDonnees(){
+function chargerDonnees(data){
 
-    
+    const data_now = Array.isArray(data) && data.length>0 ? data : datastring;
+
     document.getElementById('rows').innerHTML="";
 
-    datastring.forEach(data=>{
+    data_now.forEach(data=>{
         const tr = document.createElement('tr');
 
         Object.keys(data).forEach(key=>{
@@ -127,5 +128,23 @@ function deleteformData(tel){
 
     chargerDonnees()
 
+
+}
+
+
+document.getElementById('filter').addEventListener('input',function(){
+
+    const value_now = this.value.toLowerCase();
+
+    const new_data = datastring.filter(con=>con.pays.toLowerCase().includes(value_now))
+
+    chargerDonnees(new_data)
+
+})
+
+
+function  display(){
+
+    document.getElementById('resultat').classList.toggle('display')
 
 }
