@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: monospace;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container{
+            border : 1px dashed black ; 
+            width : clamp(400px,50vw,500px); 
+            height : clamp(400px,50vw,500px); 
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .setting{
+            border : 1px dashed black ; 
+            width : clamp(400px,50vw,500px); 
+            height : clamp(400px,50vw,500px); 
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: aqua;
+            position: relative;
+
+        }
+        
+        .title{
+            font-size: 1.4rem;
+            padding: 15px;
+            width: 180px;
+            border: 1px dashed black ;
+            border-top: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background-color: #6a5acd;
+        }
+
+        .title:hover{
+            cursor: pointer;
+            background-color: #695acd94;
+        }
+
+        .level{
+            flex:1;
+            padding : 5px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: rgba(223, 223, 223, 1);
+        }
+
+        .level:first-child{
+            background-color: rgb(180, 252, 72);
+        }
+
+        #entry{
+            position: absolute;
+            top: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn_check{
+            background-color: greenyellow;
+            border-radius: 10px;
+            margin-top: 20px;
+            outline: 2px solid green;
+            outline-offset: 2px;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.1s linear;
+        }
+        
+        .btn_check:hover{
+            transform: scale(0.99);
+        }
+
+        #frame{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border :3px solid green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+           
+        }
+
+        #para{
+            width: 100%;
+            text-align: center;
+        }
+
+
+        .direction{
+            color:blueviolet
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <button style="position: absolute; right: 0;margin: 5px; background-color: transparent;border: 0;cursor: pointer;" onclick="open_setting()"><img src="icon/setting.png" alt="setting" width='30' height="30"></button>
+        <button class="title" onclick="startGame()">Guess Game</button>
+        <div id="start_mess" style="margin: 0 0 50% 0;display: flex;align-items: center;">Click the button above to <h4 style="margin: 0 5px;text-decoration: underline;">start</h4> the game</div>
+
+        <div id="entry" style="display: none;">
+            <div id="directions">
+                <h3 id="para">Numbers of attempts</h3>
+            </div>
+            <div id="frame"><h1 id="attempts">0</h1></div>
+            <input id="user_input" type="number" pattern="[0-9]" style="padding: 7px 0;text-align: center;">
+            <button class='btn_check' onclick="check()">Check</button>
+        </div>
+    </div>
+
+    <div class="setting" style="display: none;">
+        <button style="position: absolute; left: 0;background-color: transparent;border: none;margin: 5px;cursor: pointer;" onclick="go_back()"><img src="icon/left-arrow.png" alt="back" width="30"></button>
+        <form style="padding: 10px; display: block;margin-top: 40px;">
+            <fieldset style="border-color: black;">
+                <legend>Difficulty level</legend>
+                <div style="display: flex;">
+                    <button class="level" type="button" onclick="change_level(0)">Easy</button>
+                    <button class="level" type="button" onclick="change_level(1)">Medium</button>
+                    <button class="level" type="button"  onclick="change_level(2)">Hard</button>
+                </div>
+                <p id="info" style="width: 100%; text-align: center;">numbers between 0-9</p>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="guessing_Game.js"></script>
+</body>
+</html>
