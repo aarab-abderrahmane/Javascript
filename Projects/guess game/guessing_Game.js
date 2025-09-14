@@ -54,13 +54,21 @@ console.log(random_num)
 function open_setting(){
     document.querySelector('.container').style.display='none'
     setting.style.display = "flex";
+    playClick("click_sound_1.mp3")
+
 
 }
 
 function go_back(){
     setting.style.display="none";
     document.querySelector('.container').style.display='flex'
+    playClick("click_sound_1.mp3")
 
+}
+
+function playClick(sound_effect){
+    let clickSound = new Audio("sounds/"+sound_effect)
+    clickSound.play()
 }
 
 
@@ -69,6 +77,8 @@ var current_level=0;
 
 function change_level(x){
 
+
+    playClick('Menu Selection Click.mp3')
     
     current_level=x
     const numbers = [0,1,2]
@@ -127,6 +137,7 @@ function check(){
 
         }else{
             attempts_num+=1
+            document.getElementById('user_input').value=""
             update_uttempts()
 
             
