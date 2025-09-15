@@ -1,4 +1,7 @@
 
+var bgmusic = new Audio('sounds/roblox-minecraft-fortnite-video-game-music-358426.mp3')
+
+
 
 document.querySelector('.title').addEventListener("mouseover",function(){
     this.innerText="Start"
@@ -10,9 +13,19 @@ document.querySelector('.title').addEventListener("mouseout",function(){
 
 
 function startGame(){
+
+  
+
+    playClick('zapsplat_multimedia_game_sound_simple_negative_hit_buzz_114670.mp3')
+
     const startMessageElemnt = document.getElementById('start_mess');
     const btn_content = document.querySelector('.title').textContent.trim()
-console.log(btn_content)
+
+    if(btn_content!=="Restart"){
+        bgmusic.loop = true 
+        bgmusic.play()
+    }
+
     if(btn_content==="Restart"){
         
         restart()
@@ -35,6 +48,7 @@ console.log(btn_content)
     //const random_number =
 
 
+
 }
 
  
@@ -49,7 +63,6 @@ const levels_box = document.querySelectorAll('.level')
 var random_num = null ; 
 var attempts_num = null ;
 change_level(0)
-console.log(random_num)
 
 function open_setting(){
     document.querySelector('.container').style.display='none'
@@ -121,11 +134,16 @@ function generate_number(x){
 function check(){
 
     let user_input = document.getElementById('user_input').value.trim();
-    console.log(user_input)
     if(!isNaN(user_input) && user_input!=="" ){
         user_input = parseInt(user_input)
 
         if(user_input === random_num){
+            bgmusic.volume = 0.5;
+            playClick('Won!.mp3')
+            setTimeout(()=>{
+                bgmusic.volume=1;
+            },2000)
+
             document.getElementById('para').innerText="Congratulations,You won!"
             document.querySelector('.btn_check').disabled=true
             document.getElementById('user_input').disabled=true
@@ -136,6 +154,7 @@ function check(){
             document.getElementById('directions').appendChild(direction)
 
         }else{
+            playClick('error.mp3')
             attempts_num+=1
             document.getElementById('user_input').value=""
             update_uttempts()
@@ -152,7 +171,6 @@ function check(){
 function update_uttempts(){
     const attempts = document.getElementById('attempts')
     attempts.innerText=attempts_num
-    console.log(attempts_num)
 
     if(attempts_num>3 && attempts_num<10){
         document.getElementById('frame').style.borderColor="yellow"
@@ -173,7 +191,7 @@ function restart(){
     update_uttempts()
     const direction = document.querySelector('.direction')
     if (direction){
-        direction.style.display="none"
+        direction.remove()
     }
 
     document.getElementById('para').innerText="Numbers of attempts"
@@ -183,7 +201,6 @@ function restart(){
     document.getElementById('user_input').value=""
     generate_number(current_level)
 
-    console.log(random_num)
 
 
 }
