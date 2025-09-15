@@ -21,12 +21,14 @@ function startGame(){
     const startMessageElemnt = document.getElementById('start_mess');
     const btn_content = document.querySelector('.title').textContent.trim()
 
-    if(btn_content!=="Restart"){
+    const checkbox = document.getElementById('checkbox')
+
+    if(btn_content!=="Restart" && checkbox.checked ){
         bgmusic.loop = true 
         bgmusic.play()
     }
 
-    if(btn_content==="Restart"){
+    if(btn_content==="Restart" ){
         
         restart()
         return
@@ -204,3 +206,20 @@ function restart(){
 
 
 }
+
+function off_music(){
+    playClick('Menu Selection Click.mp3')
+    const checkbox = document.getElementById('checkbox')
+    console.log(checkbox.checked)
+    if (checkbox.checked){
+        bgmusic.pause()
+        checkbox.checked=false
+    }else{
+        bgmusic.loop = true 
+        bgmusic.play()
+        checkbox.checked=true
+    }
+}
+
+
+document.querySelector('.button').addEventListener('click',off_music())

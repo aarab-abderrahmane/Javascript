@@ -132,6 +132,48 @@
             
         }
 
+        
+        .switch{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button{
+            width: 45px;
+            height: 25px;
+            background-color: rgb(201, 201, 201);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        .button::before{
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            top: 2px;
+            border-radius: 2px;
+            background-color: rgba(245, 241, 241, 0.966);
+            margin-left: 2px;
+        }
+
+        input[type="checkbox"]:checked + .button{
+            background-color: rgb(82, 158, 52);
+            
+        }
+
+        input[type="checkbox"]:checked + .button::before{
+            transform: translateX(20px);
+        }
+
+        input[type="checkbox"]{
+            display: none;
+        }
+
+
 
     </style>
 </head>
@@ -162,6 +204,14 @@
                     <button class="level" type="button"  onclick="change_level(2)">Hard</button>
                 </div>
                 <p id="info" style="width: 100%; text-align: center;">numbers between 0-9</p>
+            </fieldset>
+            <fieldset style="border:1px solid black">
+                <legend>Sounds</legend>
+                <label class="switch">
+                    <input type="checkbox" checked  id="checkbox" >
+                    <label for="check" class="button"></label>
+                    <label style="margin-left: 5px;">Music</label>
+                </label>
             </fieldset>
         </form>
     </div>
