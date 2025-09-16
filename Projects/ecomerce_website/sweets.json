@@ -1,0 +1,100 @@
+{
+    "products": [
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 2,
+            "name": "Aero Truffle - Salted Caramel (105g)",
+            "price" : 5.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8752_540x.webp?v=1757365838"
+        },
+        {
+            "id" : 1,
+            "name": "Van Holten’s Pringles Sour Cream ",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8499_1024x1024@2x.jpg?v=1754000173"
+        },
+        {
+            "id" : 1,
+            "name": "Panda Natural Soft Black Licorice (7oz)",
+            "price" : 5.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-7122_360x.webp?v=1732042615"
+        },
+        {
+            "id" : 1,
+            "name": "Twizzlers - King Size (5oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8543_540x.webp?v=1754623935"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        },
+        {
+            "id" : 1,
+            "name": "Retro Sours - Apple (2.12oz)",
+            "price" : 3.99,
+            "image" : "https://hellosweetscandy.com/cdn/shop/files/IMG-8769_1024x1024@2x.jpg?v=1757543771"
+        }
+    ]
+}

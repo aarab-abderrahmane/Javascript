@@ -5,16 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <title>Document</title>
     <style>
 
         @import url('https://fonts.googleapis.com/css2?family=Playwrite+CA:wght@100..400&display=swap');
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
 
+        html{
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #F7ECDD;
+
+        }
+        body {
             margin: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         nav {
@@ -103,12 +113,96 @@
         }
 
         .products{
-            background-color: #F7ECDD;
+            background: url('images/asfalt-dark.png');
+
             width: 75vw;
+            max-width: 100vw;
+            box-sizing: border-box;
+
+
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit , minmax(250px,1fr));
+            text-align: center;
+            gap:20px;
         }
         .menu{
             flex: 1;
-            background-color: #563626;
+            max-width: 100vw;
+            box-sizing: border-box;
+            position: relative;
+            background-color: rgb(86, 54, 38); 
+
+        }
+        .menu > div{
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            position: absolute;
+            background: url('images/brushed-alum-dark.png');
+
+
+        }
+
+
+
+        /* _____________________________________________ */
+        
+        .product{
+            background-color: rgba(222, 184, 135, 0.658);
+            border: 1px solid rgb(160, 95, 11);
+            border-radius: 50px;
+            min-height: 400px;
+            max-height: 500px;
+            height: auto;       /* let the content decide, within limits */
+            overflow: hidden; 
+
+
+            width: clamp(270px,25vw,280px);
+            position: relative;
+        }
+
+        .product_image{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+
+        .buttons{
+            background-color: yellowgreen;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .buttons>button:first-child , .buttons>button:last-child{
+            width: 50%;
+            padding: 10px 0;
+            border: 0;
+            border-top: 1px solid black;
+            
+        }
+
+        .buttons>button:first-child{
+            border-right: 1px solid black;
+            background-color: rgb(230,202,164);
+        }
+
+        .buttons>*:hover{
+            cursor: pointer;
+        }
+
+        .buttons>button:last-child{
+            background-color: rgba(227, 245, 67, 0.733);
+        }
+
+        .product  h3{
+            font-family: monospace, cursive;
+            font-size: 1rem;
+            padding: 0 10px ;
         }
 
 
@@ -139,10 +233,13 @@
 
         </div>
         <div class="menu">
+            <div>
 
+            </div>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
