@@ -1,6 +1,7 @@
 
 var bgmusic = new Audio('sounds/roblox-minecraft-fortnite-video-game-music-358426.mp3')
 
+var game_run = false ;
 
 
 document.querySelector('.title').addEventListener("mouseover",function(){
@@ -14,7 +15,7 @@ document.querySelector('.title').addEventListener("mouseout",function(){
 
 function startGame(){
 
-  
+    game_run=true;
 
     playClick('zapsplat_multimedia_game_sound_simple_negative_hit_buzz_114670.mp3')
 
@@ -207,19 +208,32 @@ function restart(){
 
 }
 
+// const checkbox = document.getElementById('checkbox')
+// checkbox.checked=true
+
 function off_music(){
     playClick('Menu Selection Click.mp3')
-    const checkbox = document.getElementById('checkbox')
-    console.log(checkbox.checked)
+
     if (checkbox.checked){
-        bgmusic.pause()
-        checkbox.checked=false
-    }else{
+        // checkbox.checked=false
+
+
+        console.log("game_run",game_run)
+        if(game_run){
         bgmusic.loop = true 
         bgmusic.play()
-        checkbox.checked=true
+        }
+
+    }else{
+        bgmusic.pause()
+        
+        // checkbox.checked=true
     }
+    console.log(checkbox.checked)
+
 }
 
 
-document.querySelector('.button').addEventListener('click',off_music())
+document.getElementById('checkbox').addEventListener('change',off_music)
+
+
