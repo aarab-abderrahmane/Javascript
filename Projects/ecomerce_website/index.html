@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+CA:wght@100..400&display=swap');
+        body {
+
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background-color: #31251e;
+        }
+
+
+
+        nav>.first-section {
+            width: 60vw;
+            display: flex;
+            justify-content: center ;
+        }
+
+        .search{
+            /* background-color: burlywood; */
+            background-color: white;
+            width: 200px;
+            display: flex;
+
+            padding: 5px;
+            border-radius:15px;
+            align-items: center;
+            width: clamp(300px,30vw,1000px)
+
+
+        }
+
+        .search > input{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding: 3px;
+            flex: 1;
+         }
+
+        .second-section{
+            text-align: center;
+            flex :1;
+            color: white;
+            font-family: "Playwrite CA", cursive;
+        }
+
+        @media (max-width:768px){
+            nav{
+                flex-direction: column-reverse;
+                padding: 10px;
+               
+                
+            }
+            .second-section{
+                margin-top: -10px;
+                height: 90px;
+            }
+            
+            .second-section{
+                width: 100%;
+                font-size: 0.8rem;
+            }
+
+        }
+
+        @media (max-width:1000px){
+            .menu{
+                display: none;
+            }
+            .products{
+                width: 100vw;
+                flex: 1;
+            }
+
+            .first-section{
+                width: 50px;
+                
+            }
+        }
+
+
+        .container{
+            flex:1;
+            display: flex;
+
+        }
+
+        .products{
+            background-color: #F7ECDD;
+            width: 75vw;
+        }
+        .menu{
+            flex: 1;
+            background-color: #563626;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="first-section">
+            <div  class="search">
+                <input type="text" placeholder="Search.." id="search">
+                <label for="search" style="cursor: pointer;width: 30px">
+                <i class="bi bi-search" style="color: rgb(185, 118, 29)"  ></i>
+
+                </label>
+            </div>
+        </div>
+        <div class="second-section">
+          <h1 style="padding: 0 10px;width: 100%">Sweet Cookies</h1>
+        </div>
+
+
+    </nav>
+
+    <div class="container">
+        <div class="products">
+
+        </div>
+        <div class="menu">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
