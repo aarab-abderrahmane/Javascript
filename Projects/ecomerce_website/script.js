@@ -10,12 +10,14 @@ fetch("sweets.json")
             <div><h3>${pro.name}</h3></div>
             <img src="${pro.image}" class="product_image" >
             <div>
-                <div>
+                <div class="price">
+                    <div class="frame">
                     <h4>${pro.price}</h4>
-                    <div>
+                    <div class="quantite_container">
                         <button  onclick="increment(${pro.id})">-</button>
                         <span data-stock="${pro.id}" class="quantite" >0</span>
                         <button  onclick="decrement(${pro.id})" >+</button>
+                    </div>
                     </div>
                 </div>
             <div>
